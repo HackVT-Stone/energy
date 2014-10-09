@@ -1,0 +1,847 @@
+{
+  "headerConfig": {
+  },
+  "mainContentConfig": {
+    "steps": [
+      {
+        "order": 0,
+        "title": "Step 1",
+        "subtitle": "Introduction",
+        "config": [
+          {
+            "order": 0,
+            "formClass": "form0",
+            "title": "Introduction",
+            "bannerImage": "http://www.watershedmanagement.vt.gov/stormwater/htm/images/ccvweb_001.jpg",
+            "intro": "<p>Rain that falls on roofs, driveways, and other hard surfaces can carry pollutants to our lakes and rivers. There are a number of simple solutions that allow individual properties to capture, store, and slowly release rainwater into the ground to replenish aquifers, streams, and rivers especially during smaller rainfall events.</p>",
+            "content": "<p>The Vermont Stormwater Calculator is a tool for quickly comparing the performance and costs of <a href=\"http://www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_lid.htm\">Low Impact Development (LID)</a> and <a href=\"http://www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_gsi.htm\">Green Stormwater Infrastructure (GSI)</a> to conventional stormwater practices. The calculator leads you step-by-step through a process of defining the natural conditions at your site, choosing a stormwater management goal, describing the impervious areas of your site under conventional development, and then choosing from a range of LID and GSI practices to find combinations that can cost-effectively meet your stormwater management goals.</p><p> Please keep in mind: <ul><li>The Vermont Stormwater Calculator is a prototype that remains under development. It is NOT completely functional, but is intended to illustrate the potential utility of a full-featured application.</li><li>This calculator is currently focused on runoff volume reduction - it does not produce any peak flow results. Volume reduction processes include infiltration, evapotranspiration and reuse, and do not include detention in ponds or vaults.</li><li>The calculator is intended to be applied at the individual property or site scale.</li></p>",
+            "outro": "To get started, select a button from the menu at left. We recommend starting on the Find Your Site page and proceeding through each step.",
+            "fields": [
+            ]
+          }
+        ]
+      },
+      {
+        "order": 1,
+        "title": "Step 2",
+        "subtitle": "Find Your Site",
+        "config": [
+          {
+            "order": 0,
+            "formClass": "form1",
+            "title": "FIND YOUR SITE",
+            "bannerImage": "",
+            "intro": "",
+            "content": "<p>Enter the address of your site in the box below and click &quot;Locate on Map.&quot; If the address search returns the correct map location of your site, click &quot;OK&quot; to move to the next step.</p><p>You can also use the map’s pan-and-zoom tools to locate your site. Once you have located your site, click on the map to set your site location and move to the next step.</p>",
+            "outro": "",
+            "fields": [
+              {
+                "order": 0,
+                "name": "Your Site Address",
+                "default": "",
+                "type": "getaddress",
+                "valueType": "string",
+                "readonly": false,
+                "databaseSource": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "title": "Step 3",
+        "subtitle": "Site Information",
+        "config": [
+          {
+            "order": 0,
+            "formClass": "form2",
+            "title": "SITE AREA",
+            "bannerImage": "",
+            "intro": "",
+            "content": "Enter the size of your site (in acres), or enter the dimensions of your site (length and width, in feet).",
+            "outro": "",
+            "fields": [
+              {
+                "order": 0,
+                "name": "Lot Length (ft)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 1,
+                "name": "Lot Width (ft)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              }
+            ]
+          },
+          {
+            "order": 1,
+            "formClass": "form2",
+            "title": "SITE SOILS",
+            "bannerImage": "",
+            "intro": "",
+            "content": "Click on the map to retrieve information about your site's soils, or choose the description that best fits your site's soils from the drop-down list below.",
+            "outro": "",
+            "fields": [
+              {
+                "order": 0,
+                "name": "Lot's Hydrologic Soil Group",
+                "default": "B",
+                "type": "dropdown",
+                "dropdownValues": [
+                  {
+                    "key": "A",
+                    "value": "Soils with a high infiltration rate (low runoff potential) when thoroughly wet (HSG A)"
+                  },
+                  {
+                    "key": "B",
+                    "value": "Soils with a moderate infiltration rate when thoroughly wet (HSG B)"
+                  },
+                  {
+                    "key": "C",
+                    "value": "Soils with a low infiltration rate when thoroughly wet (HSG C)"
+                  },
+                  {
+                    "key": "D",
+                    "value": "Soils with a very low infiltration rate (high runoff potential) when thoroughly wet (HSG D)"
+                  }
+                ],
+                "readonly": false,
+                "databaseSource": ""
+              }
+            ]
+          },
+          {
+            "order": 2,
+            "formClass": "form2",
+            "title": "RAINFALL",
+            "bannerImage": "",
+            "intro": "",
+            "content": "Enter your site's zip code to see annual average precipitation and the 90% storm's rainfall depth for your site. Any other precipitation quantity can be entered, if you are interested in looking at the total runoff volume produced by each scenario under different rainfall conditions.",
+            "outro": "[In a full-featured calculator, these data fields will be populated based on a raster map of annual average precipitation for the state, or based on a database table of average annual rainfall by zip code. Design storm rainfall depths will be stored and returned in a similar way.]",
+            "fields": [
+              {
+                "order": 0,
+                "name": "Zip Code",
+                "default": "",
+                "type": "textbox",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 1,
+                "name": "Annual Rainfall (inches)",
+                "default": "",
+                "type": "textbox",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 2,
+                "name": "Storm Type",
+                "default": "90",
+                "type": "dropdown",
+                "dropdownValues": [
+                  {
+                    "key": "85",
+                    "value": "85%"
+                  },
+                  {
+                    "key": "90",
+                    "value": "90%"
+                  },
+                  {
+                    "key": "95",
+                    "value": "95%"
+                  },
+                  {
+                    "key": "99",
+                    "value": "99%"
+                  }
+                ],
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 3,
+                "name": "Storm Rainfall (inches)",
+                "default": "",
+                "type": "textbox",
+                "readonly": false,
+                "databaseSource": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "title": "Step 4",
+        "subtitle": "Pre-Development",
+        "config": [
+          {
+            "order": 0,
+            "formClass": "form3",
+            "title": "PREDEVELOPMENT",
+            "bannerImage": "",
+            "intro": "Vermont's state-level stormwater management regulations define the &quot;predevelopment&quot; condition as the existing condition of the site prior to the development or re-development project under consideration. Choose land cover types that are represented on your site for the predevelopment condition by the percentage of the site area. Predevelopment land cover choices must add up to 100%.",
+            "content": "The land cover categories shown below come from the USDA Soil Conservation Service Technical Release 55 (TR-55): Urban Hydrology for Small Watersheds Table 2.2a-d. The land cover category is associated with a curve number (either a default value or user-specified), and the percentage of site area assigned to each land cover type creates a composite curve number for your site under predevelopment conditions.",
+            "outro": "",
+            "calcgroups": [
+              {
+                "name": "predev",
+                "type": "percent",
+                "total": "100"
+              }
+            ],
+            "fields": [
+              {
+                "order": 0,
+                "name": "Impervious Area (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 1,
+                "name": "Lawn in good condition (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 2,
+                "name": "Lawn in fair condition (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 3,
+                "name": "Urban Fill (%)",
+                "default": "",
+                "type": "textbox",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 4,
+                "name": "Newly Graded Areas, no vegetation (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 5,
+                "name": "Straight Row Crops in good condition (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 6,
+                "name": "Pasture in fair condition (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 7,
+                "name": "Meadow (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 8,
+                "name": "Woods in good condition (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 9,
+                "name": "Wetlands (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              },
+              {
+                "order": 10,
+                "name": "Water (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "predev"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "title": "Step 5",
+        "subtitle": "Runoff Management Goals",
+        "config": [
+          {
+            "order": 0,
+            "formClass": "form4",
+            "title": "RUNOFF MANAGEMENT GOALS",
+            "bannerImage": "",
+            "intro": "",
+            "content": "Select a stormwater management goal from the drop-down list. The selected value defines the amount of precipitation falling on the site's impervious surfaces that should be infiltrated, evapotranspired, or reused on site to meet the management goal.",
+            "outro": "[The range of goals / standards to be included here represents a data gap. Alternately, our stakeholders could decide that this should be only a first-inch calculator, and get rid of the option to choose a goal or standards.]",
+            "calcgroups": [
+              {
+                "name": "goals",
+                "type": "solve",
+                "output": "Q",
+                "formula": "((P-Ia)*(P-Ia))/((P-Ia) + S)"
+              }
+            ],
+            "fields": [
+              {
+                "order": 0,
+                "name": "Select a Goal",
+                "default": "0",
+                "type": "dropdown",
+                "dropdownValues": [
+                  {
+                    "key": "0",
+                    "value": "2002 VT Stormwater Manual Water Quality Treatment Standard"
+                  },
+                  {
+                    "key": "1",
+                    "value": "Proposed Stormwater Manual Water Quality Treatment Standard"
+                  }
+                ],
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 1,
+                "name": "Precipitation Depth Capture (in)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 2,
+                "name": "Required Volume to Capture On Site",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 3,
+                "name": "Q",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": true,
+                "databaseSource": "",
+                "calcgroup": "goals"
+              },
+              {
+                "order": 4,
+                "name": "P",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "goals"
+              },
+              {
+                "order": 5,
+                "name": "S",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "goals"
+              },
+              {
+                "order": 6,
+                "name": "Ia",
+                "default": "0.2",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "goals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "title": "Step 6",
+        "subtitle": "Conventional Development",
+        "config": [
+          {
+            "order": 0,
+            "formClass": "form5",
+            "title": "IMPERVIOUS AREAS",
+            "bannerImage": "",
+            "intro": "Enter information about the dimensions of existing or proposed impervious areas on the site.",
+            "content": "",
+            "outro": "[The conventional development scenario in the National Green Values Calculator (GVC) assumes underground vaults for volume storage; a pipes-and-ponds approach would be a more typical VT &quot;conventional&quot; scenario. In creating a full-featured calculator, we would evaluate how the original GVC handled &quot;pipes-and-ponds,&quot; and recommend/develop an approach that enables comparisons of &quot;gray&quot; and &quot;green&quot; infrastructure for addressing peak flows as well as runoff volume reductions.]",
+            "fields": [
+              {
+                "order": 0,
+                "name": "Roof size (ft<sup>2</sup>)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 1,
+                "name": "Parking Lot Size (ft<sup>2</sup>)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 2,
+                "name": "Sidewalk Length (ft)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 3,
+                "name": "Sidewalk Width (ft)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 4,
+                "name": "Streets Length (ft)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 5,
+                "name": "Streets Width (ft)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 6,
+                "name": "Driveways or Alleys Length (ft)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 7,
+                "name": "Driveways or Alleys Width (ft)",
+                "default": "10",
+                "type": "textbox",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": ""
+              }
+            ]
+          },
+          {
+            "order": 1,
+            "formClass": "form5",
+            "title": "OTHER LAND COVER",
+            "bannerImage": "",
+            "intro": "Enter the expected percentages of land cover for the remaining pervious surfaces after development.",
+            "content": "",
+            "outro": "",
+            "fields": [
+              {
+                "order": 0,
+                "name": "Lawn in good condition (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "convdev"
+              },
+              {
+                "order": 1,
+                "name": "Lawn in fair condition (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "convdev"
+              },
+              {
+                "order": 2,
+                "name": "Newly Graded Areas, no vegetation (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "convdev"
+              },
+              {
+                "order": 3,
+                "name": "Woods in good condition (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "convdev"
+              },
+              {
+                "order": 4,
+                "name": "Wetlands (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "convdev"
+              },
+              {
+                "order": 5,
+                "name": "Water (%)",
+                "default": "10",
+                "type": "calcgroupvalue",
+                "valueType": "numeric",
+                "readonly": false,
+                "databaseSource": "",
+                "calcgroup": "convdev"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "title": "Step 7",
+        "subtitle": "Green Stormwater Infrastructure Options",
+        "config": [
+          {
+            "order": 0,
+            "formClass": "form6",
+            "title": "ROOFTOPS",
+            "bannerImage": "",
+            "intro": "These options are specifically for rooftops.",
+"content":"The practices included below can provide stormwater management benefits through infiltration, evapotranspiration, and reuse of captured stormwater for irrigation and other non-potable uses. Experiment with applying different practices and combinations to see how you can progress towards meeting your specified management goal, reduce runoff volume from the site, reduce site imperviousness, and affect costs.",
+            "outro":"Click on each practice name to see a description of practices that can be applied to rooftop impervious surfaces, as well as some common assumptions on their design and construction. Checking the box next to each practice name applies the practice to a portion of the rooftop impervious cover specified in the &#x201c;Conventional Development&#x201d; scenario, and allows you to change the default design values for that practice.",
+            "fields": [
+              {
+                "order": 0,
+                "name": "Green Roof",
+                "default": "10",
+                "type": "directive",
+                "value": "green-rooftop",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 1,
+                "name": "Planter Boxes (disconnect downspout)",
+                "default": "10",
+                "type": "directive",
+                "value": "planter-boxes-rooftop",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 2,
+                "name": "Rain Garden or Bioretention (disconnect downspout)",
+                "default": "10",
+                "type": "directive",
+                "value": "bioretention-rooftop",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 3,
+                "name": "Infiltration Trench or Drywell (downspout disconnect)",
+                "default": "10",
+                "type": "directive",
+                "value": "infiltration-rooftop",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 4,
+                "name": "Cisterns / Rain Barrels (disconnect downspout)",
+                "default": "10",
+                "type": "directive",
+                "value": "cistern-rooftop",
+                "readonly": false,
+                "databaseSource": ""
+              }
+            ]
+          },
+          {
+            "order": 1,
+            "formClass": "form6",
+            "title": "PERVIOUS SURFACES",
+            "bannerImage": "",
+            "intro": "These options are specifically for pervious surfaces.",
+            "content": "The practices included below can provide stormwater management benefits through infiltration, evapotranspiration, and reuse of captured stormwater for irrigation and other non-potable uses. Experiment with applying different practices and combinations to see how you can progress towards meeting your specified management goal, reduce runoff volume from the site, reduce site imperviousness, and affect costs.",
+            "outro": "Click on each practice name to see a description of practices that can be applied to pervious surfaces that remain pervious after development, as well as some common assumptions on their design and construction. Checking the box next to each practice name applies the practice to a portion of the rooftop impervious cover specified in the &#x201c;Conventional Development&#x201d; scenario, and allows you to change the default design values for that practice.",
+            "fields": [
+              {
+                "order": 0,
+                "name": "Native Vegetation",
+                "default": "10",
+                "type": "directive",
+                "value": "vegetation",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 1,
+                "name": "Amended Soil",
+                "default": "10",
+                "type": "directive",
+                "value": "amended-soil",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 2,
+                "name": "Trees",
+                "default": "10",
+                "type": "directive",
+                "value": "trees",
+                "readonly": false,
+                "databaseSource": ""
+              }
+            ]
+          },
+          {
+            "order": 2,
+            "formClass": "form6",
+            "title": "PARKING/SIDEWALKS/STREETS",
+            "bannerImage": "",
+            "intro": "These options are specifically for parking areas, sidewalks, and streets.",
+            "content": "The practices included below can provide stormwater management benefits through infiltration, evapotranspiration, and reuse of captured stormwater for irrigation and other non-potable uses. Experiment with applying different practices and combinations to see how you can progress towards meeting your specified management goal, reduce runoff volume from the site, reduce site imperviousness, and affect costs.",
+            "outro": "Click on each practice name to see a description of practices that can be applied to parking areas, driveways, sidewalks, and streets, as well as some common assumptions on their design and construction. Checking the box next to each practice name applies the practice to a portion of the impervious cover types related to foot and vehicle traffic specified in the &#x201c;Conventional Development&#x201d; scenario, and allows you to change the default design values for that practice.",
+            "fields": [
+              {
+                "order": 0,
+                "name": "Swales in Parking Lot",
+                "default": "10",
+                "type": "directive",
+                "value": "swales-parking",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 1,
+                "name": "Vegetation Filter Strips for Parking",
+                "default": "10",
+                "type": "directive",
+                "value": "filter-strips-parking",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 2,
+                "name": "Infiltration Trench or Basin for Parking",
+                "default": "10",
+                "type": "directive",
+                "value": "infiltration-parking",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 3,
+                "name": "Permeable Pavement on Parking",
+                "default": "10",
+                "type": "directive",
+                "value": "permeable-pavement-parking",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 4,
+                "name": "Permeable Pavement on Driveways and Alleys",
+                "default": "10",
+                "type": "directive",
+                "value": "permeable-pavement-driveway",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 5,
+                "name": "Vegetation Filter Strips for Driveways",
+                "default": "10",
+                "type": "directive",
+                "value": "filter-strips-driveway",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 6,
+                "name": "Permeable Pavement on Sidewalks",
+                "default": "10",
+                "type": "directive",
+                "value": "permeable-pavement-sidewalk",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 7,
+                "name": "Reduced Street Width",
+                "default": "10",
+                "type": "directive",
+                "value": "street-width",
+                "readonly": false,
+                "databaseSource": ""
+              },
+              {
+                "order": 8,
+                "name": "Roadside Swales (elimination of curb and gutter along driveways or streets)",
+                "default": "10",
+                "type": "directive",
+                "value": "swales-roadside",
+                "readonly": false,
+                "databaseSource": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "title": "Step 8",
+        "subtitle": "Results / Report",
+        "config": [
+{
+            "order": 0,
+            "formClass": "form7",
+            "title": "INTRO",
+            "bannerImage": "",
+            "intro": "",
+            "content": "<p>Reporting of results is not functional in this prototype. We aspire to the display and quality of results displayed by the National Green Values Calculator &#x2013; a simple, concise narrative summary visible at all times, with tabs showing all the details. The narrative summary from the National GVC is:</p><p>&#x201c;The Green Stormwater BMP(s) applied in this scenario (increase OR decrease) the site impermeable area by XX% and capture YY% of the runoff volume required. Compared to conventional approaches, the green practices in this scenario will (increase OR decrease) the total life-cycle construction and maintenance costs by ZZ% (in net present value).&#x201d;</p><p>The results tabs in this prototype contain screen shots from the National GVC, illustrating the types of results and cost information we intend a full-featured calculator to return.</p>",
+            "outro": "",
+            "fields": [
+            ]
+          },
+
+          {
+            "order": 1,
+            "formClass": "form7",
+            "title": "VOLUME",
+            "bannerImage": "",
+            "intro": "Volume Control",
+            "content": "<results-volume></results-volume>",
+            "outro": "",
+            "fields": [
+            ]
+          },
+          {
+            "order": 2,
+            "formClass": "form7",
+            "title": "RUNOFF",
+            "bannerImage": "",
+            "intro": "Coefficients and Runoff",
+            "content": "<results-runoff></results-runoff>",
+            "outro": "",
+            "fields": [
+            ]
+          },
+          {
+            "order": 3,
+            "formClass": "form7",
+            "title": "LAND USE",
+            "bannerImage": "",
+            "intro": "Land Use",
+            "content": "<results-land-use></results-land-use>",
+            "outro": "",
+            "fields": [
+            ]
+          },
+          {
+            "order": 4,
+            "formClass": "form7",
+            "title": "COSTS",
+            "bannerImage": "",
+            "intro": "Costs",
+            "content": "<results-costs></results-costs>",
+            "outro": "",
+            "fields": [
+            ]
+          }
+        ]
+      }
+    ],
+    "stepButtonHeight": "calc((100% - 100px) / 7)",
+    "mapHeight": 800,
+    "mapWidth": 800,
+    "mapExtent": {
+    }
+  },
+  "footerConfig": {
+  }
+}

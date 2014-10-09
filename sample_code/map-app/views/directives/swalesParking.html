@@ -1,0 +1,36 @@
+<div class="swalesParking">
+	<img class="contentImage_rainGarden" src="/images/swaleParking.jpg"/>
+	<p>Dry swales are gently sloped open channels vegetated with native plants that reduce runoff volumes through infiltration and evapotranspiration. This category of swale is located in a parking lot to absorb runoff from the lot. Dry swales can absorb low flows, and carry runoff from heavy rains to storm sewer inlets or directly to surface waters. These practices improve water quality by infiltrating the first flush of storm water runoff and filtering the large storm flows they convey.</p>
+	<p>This calculator uses a default combined depth of 24 inches of amended soil and aggregate.</p>
+	<p>Use the &#x201c;Percentage of Parking Lot Runoff Captured by Dry Swale&#x201d; slider bar to automatically adjust the area of the swale to capture different amounts of the runoff from your parking area, or adjust the specific design values below to determine the area and depth of the swale.</p>
+	
+	<div style="margin-bottom: 15px;">
+		<h4>Your Site</h4>
+		<div style="margin-left: 100px;">
+			Percentage of Parking Lot Runoff Captured by Swales: <input ng-model="sliderMax" class="slider" id="mySlider3" slider options="sliderOptions"/>
+			<div style="font-weight:bold;font-size:12px;font-style:italic;clear:both;padding:10px;margin-left:30px;">OR adjust the values below to determine the length, width, and depth of your swale...</div>
+		</div>
+		<div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Swale Length (ft):</div><div style="width: 50px;display: inline-block;"><input type="text" value="100"/></div></div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Top Width (in):</div><div style="width: 50px;display: inline-block;"><input type="text" value="48"/></div></div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Depth of Prepared Soil (in):</div><div style="width: 50px;display: inline-block;"><input type="text" value="18"/></div></div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Porosity of Prepared Soil:</div><div style="width: 50px;display: inline-block;"><input type="text" value="0.35"/></div></div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Width of Aggregate (in):</div><div style="width: 50px;display: inline-block;"><input type="text" value="36"/></div></div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Depth of Aggregate (in):</div><div style="width: 50px;display: inline-block;"><input type="text" value="6"/></div></div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Porosity of Aggregate:</div><div style="width: 50px;display: inline-block;"><input type="text" value="0.25"/></div></div>
+		</div>
+	</div>
+
+	<p>
+		<h5>Sources:</h5>
+		<ul>
+			<li>Image source, <a href="http://www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_bmp_vegetatedswales.htm" target="_blank">www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_bmp_vegetatedswales.htm</a></li>
+			<li>Vermont DEC&#x2019;s Green Stormwater Infrastructure webpage for vegetated swales, <a href="http://www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_bmp_vegetatedswales.htm" target="_blank">www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_bmp_vegetatedswales.htm</a></li>
+			<li>National Green Values Calculator webpage, <a href="http://greenvalues.cnt.org/national/calculator.php" target="_blank">greenvalues.cnt.org/national/calculator.php</a></li>
+			<li>Vermont Stormwater Management Manual (2002), <a href="http://www.anr.state.vt.us/dec/waterq/stormwater/docs/sw_manual-vol1.pdf" target="_blank">www.anr.state.vt.us/dec/waterq/stormwater/docs/sw_manual-vol1.pdf</a></li>
+		</ul>
+	</p>
+
+<h5>Note: Currently, the sizing adjustment data fields are based on those in the National Green Values Calculator, which accounts only for practice area and storage of runoff in media void spaces. The Vermont Stormwater Management Manual uses a different sizing equation that is based on Darcy&#x2019;s Law and incorporates ponding depth; for consistency with state standards we may use that equation instead in a full-featured calculator.	</h5>
+	
+</div>

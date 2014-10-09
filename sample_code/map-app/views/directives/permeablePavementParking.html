@@ -1,0 +1,35 @@
+<div class="permeablePavementParking">
+	<img src="/images/permeablePavementParking.jpg"/>
+	<p>Permeable pavement systems are hardscape materials that allow liquids to infiltrate through void spaces in the material, or through open spaces between components of the material, while maintaining the functionality of an impervious surface. These systems, whether the trafficked surface is made of porous asphalt, porous concrete, or pavers, are underlain by an aggregate base that provides structural support, runoff storage, and pollutant removal. Permeable pavement is well suited for parking lots, walking paths, sidewalks, driveways, low speed-low volume lanes, plazas, and low vehicle weight streets.</p>
+	<p>Properly installed and maintained permeable pavement has a significant life-span, and existing systems that are more than twenty years in age continue to function. Because water drains through the surface course and into the subsurface bed, freeze-thaw cycles do not tend to adversely affect these pavement systems.</p>
+	<p>This calculator uses a default depth of 12 inches of aggregate.</p>
+	<p>Use the &#x201c;Percentage of Parking Lot Runoff Treated with Permeable Pavement&#x201d; slider bar to automatically adjust the area of the parking covered with permeable pavement, or adjust the specific design values below to determine the type of pavement, area treated, and depth of the aggregate material.</p>
+	<div style="margin-bottom: 15px;">
+		<h4>Your Site</h4>
+		<div style="margin-left: 100px;">
+			Percentage of Parking Lot Runoff Treated With Permeable Pavement: <input ng-model="sliderMax" class="slider" id="mySlider4" slider options="sliderOptions"/>
+			<div style="font-weight:bold;font-size:12px;font-style:italic;clear:both;padding:10px;margin-left:30px;">OR adjust the values below to determine the percentage of parking lot treated, type of paving material, and aggregate depth...</div>
+		</div>
+		<div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Amount of Parking Treated (%):</div><div style="width: 50px;display: inline-block;"><input type="text" value="100"/></div></div>
+		<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Material:</div><div style="width: 50px;display: inline-block;">
+			<select>
+				<option selected>Porous Asphalt</option>
+				<option>Porous Concrete</option>
+				<option>Pavers</option>
+				</select></div></div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Underlying Aggregate Depth (in):</div><div style="width: 50px;display: inline-block;"><input type="text" value="12"/></div></div>
+			<div><div style="width: 300px;padding-right: 5px;display: inline-block; text-align: right;">Underlying Aggregate Porosity (Void Ratio):</div><div style="width: 50px;display: inline-block;"><input type="text" value="0.25"/></div></div>
+		</div>
+	</div>
+	<p>
+		<h5>Sources:</h5>
+		<ul>
+			<li>Image source, <a href="http://www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_bmp_perviouspavement.htm" target="_blank">www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_bmp_perviouspavement.htm</a></li>
+			<li>Vermont DEC&#x2019;s Green Stormwater Infrastructure webpage for pervious pavement, <a href="http://www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_bmp_perviouspavement.htm" target="_blank">www.watershedmanagement.vt.gov/stormwater/htm/sw_gi_bmp_perviouspavement.htm</a></li>
+			<li>National Green Values Calculator webpage, <a href="http://greenvalues.cnt.org/national/calculator.php" target="_blank">greenvalues.cnt.org/national/calculator.php</a></li>
+		</ul>
+	</p>
+
+	<h5>Note: Currently, the sizing adjustment data fields are based on those in the National Green Values Calculator, which accounts only for storage of runoff in media void spaces. The Vermont Stormwater Management Manual does not currently include permeable pavement systems, but a &#x201c;Permeable Pavements&#x201d; practice standard is under development for the revised manual, expected in 2015. See <a href="http://www.vtwaterquality.org/stormwater/htm/sw_manualrevision.htm" target="_blank">www.vtwaterquality.org/stormwater/htm/sw_manualrevision.htm</a> for details and current status of this effort. The treatment volume and crediting of permeable pavement towards meeting the applicable stormwater management goals in the new manual is likely to differ slightly from the inputs provided above, which do not account for the permeability of underlying soils.	</h5>
+</div>

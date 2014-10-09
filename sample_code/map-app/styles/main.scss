@@ -1,0 +1,379 @@
+$icon-font-path:"../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+// endbower
+
+
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300italic,300,400italic,700,700italic,800,800italic);
+//@import url(http://fonts.googleapis.com/css?family=Syncopate:400,700);
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=GFS+Didot&subset=greek);
+
+
+$color-primary-0 		: #6F73A3;	/* Main Primary color */
+$color-primary-1 		: #CACBDF;
+$color-primary-2 		: #9A9DC0;
+$color-primary-3 		: #4A4E87;
+$color-primary-4 		: #2D326D;
+$color-secondary-1-0: #EBDB94;	/* Main Secondary color (1) */
+$color-secondary-1-1: #FFFAE3;
+$color-secondary-1-2: #FFF4C4;
+$color-secondary-1-3: #C3B05C;
+$color-secondary-1-4: #9E8A33;
+$color-secondary-2-0: #77BC77;	/* Main Secondary color (2) */
+$color-secondary-2-1: #D0EAD0;
+$color-secondary-2-2: #A5D6A5;
+$color-secondary-2-3: #4A9C4A;
+$color-secondary-2-4: #287E28;
+
+$darkertextcolor: #4C3E00;
+
+$font-stack-header: 'Oswald', sans-serif; //'Syncopate', sans-serif;
+$font-stack-header-bold: 700;
+$font-stack-header-light: 400;
+
+$font-stack-content: 'GFS Didot', serif; //'Merriweather Sans', sans-serif;
+$font-stack-content-bold: 800;
+$font-stack-content-normal: 400;
+$font-stack-content-light: 300;
+
+$font-stack-content-header: 'Merriweather Sans', sans-serif;
+$font-stack-content-header-bold: 800;
+$font-stack-content-header-normal: 400;
+$font-stack-content-header-light: 300;
+$font-stack-content-header-size-h1: 16px;
+$font-stack-content-header-size-h3: 13px;
+$font-stack-content-header-margin-bottom-h1: 10px;
+$font-stack-content-header-margin-bottom-h3: 20px;
+
+
+$contentStepContainer-width: 300px;
+
+@mixin stepGradient {
+	background: #d0ead0; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxNiUiIHN0b3AtY29sb3I9IiNkMGVhZDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI3OCUiIHN0b3AtY29sb3I9IiM0YTljNGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NiUiIHN0b3AtY29sb3I9IiM0YTljNGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZDBlYWQwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(left,  #d0ead0 16%, #4a9c4a 78%, #4a9c4a 96%, #d0ead0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(16%,#d0ead0), color-stop(78%,#4a9c4a), color-stop(96%,#4a9c4a), color-stop(100%,#d0ead0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #d0ead0 16%,#4a9c4a 78%,#4a9c4a 96%,#d0ead0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #d0ead0 16%,#4a9c4a 78%,#4a9c4a 96%,#d0ead0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #d0ead0 16%,#4a9c4a 78%,#4a9c4a 96%,#d0ead0 100%); /* IE10+ */
+	background: linear-gradient(to right,  #d0ead0 16%,#4a9c4a 78%,#4a9c4a 96%,#d0ead0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0ead0', endColorstr='#d0ead0',GradientType=1 ); /* IE6-8 */	
+}
+
+@import "./forms.scss";
+@import "./tables.scss";
+
+
+* {
+	box-sizing: padding-box;	
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.body {
+  height: 100%;
+  width: 100%;
+}
+.header {
+  background-color: $color-primary-4;
+  color: $color-primary-1;
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 901;
+	box-shadow: 0 0 10px black;
+	padding-top: 5px;
+	padding-left: 5px;
+  div {
+    position: relative;
+    display: inline-block;
+  }
+  h3 {
+    margin: 5px 15px 5px 5px;
+    font-size: 22pt;
+    font-family: $font-stack-header;
+    font-weight: $font-stack-header-bold;
+  }
+  h2 {
+    margin: 10px 15px 10px 0;
+    font-size: 14pt;
+    font-family: $font-stack-header;
+    font-weight: $font-stack-header-bold;
+  }
+}
+.mainContent {
+  top: 50px;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  min-height: 50px;
+  //    background-color: #87ffcf;
+
+}
+
+.mainContentSteps {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: $contentStepContainer-width;
+  background-color: black;
+  z-index: 900;
+  overflow-y: hidden;
+  overflow-x: visible;
+  box-shadow: 0 0 10px black;
+}
+
+.mainContentStep {
+	font-family: $font-stack-content-header;
+	font-weight: $font-stack-content-normal;
+	font-size: 14pt;
+	&.wrapper {
+		position: relative;
+		left: 1px;
+		width: calc(100% - 2px);
+		display: block;
+		clear: both;
+		background-color: $color-secondary-2-1;
+		color: $color-secondary-2-4;
+		padding: 5px;
+		margin-bottom: 1px;
+	}
+	&:hover {
+		background-color: $color-secondary-2-0;
+	}
+	div {
+		clear: both;
+	}
+	h1 {
+		font-weight: $font-stack-content-bold;
+		font-size: 15pt;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.triangle-right {
+	position: absolute;
+	left: $contentStepContainer-width;
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-left: 100px solid $color-secondary-2-0;
+	border-bottom: 50px solid transparent;
+	z-index: 999;
+}
+
+.mainContentStepActive {
+	background-color: $color-secondary-2-4;
+  color: $color-secondary-2-1;
+}
+
+.mainContentMapContainer {
+  left: $contentStepContainer-width;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: gray;
+  //height:100%;
+  width: calc(100% - $contentStepContainer-width);
+}
+
+#tocDiv {
+	z-index:500;
+	right: 0;
+	top: 220px;
+	bottom: 10px;
+	background-color: white;
+	position: absolute;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px black;
+	width: 300px;
+}
+
+
+.esri-map {
+  width: 100%;
+  height: 100%;
+}
+#geocoder {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  left: 74px;
+}
+#btn_bmtoggle {
+	
+  position: absolute;
+  z-index: 30;
+  top: 60px;
+  left: 74px;
+}
+
+.footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 19px;
+  color: #777;
+  height: 50px;
+  position: absolute;
+  background-color: $color-primary-4;
+  color: $color-primary-1;
+  z-index: 900;
+  box-shadow: 0 0 10px black;
+  h5 {
+  	margin-left: 10px;
+  	margin-bottom: 10px;	
+  }
+}
+.absoluteFill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.mainContentStepFormsWrapper {
+	perspective: 3000px;
+	perspective-origin: 0 50%;
+	display: block;
+	position: absolute;
+	left: $contentStepContainer-width;
+	top: 10px;
+	bottom: 60px;
+	min-width: 500px;
+	width: calc(100% - 660px);
+	z-index: 50;
+	background:none !important;
+}
+
+.clickthrough {
+	pointer-events: none;	
+}
+
+.noclickthrough {
+	pointer-events: auto;	
+}
+
+.mainContentStepForms {
+	height: 100%;
+	width: 100%;
+	border: 1px solid black;
+	background-color: white;
+	
+	overflow-y: auto;
+	padding: 5px;
+	box-shadow: 0 0 10px black;
+}
+
+.formsVisible {
+	transition: 0.6s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+	transform-style: preserve-3d;
+	-webkit-transform: rotateY(0deg);
+  -webkit-transform-origin: 0% 50%;
+	transform: rotateY(0deg);
+	transform-origin: 0% 50%;
+	-moz-transform: rotateY(0deg);
+	-moz-transform-origin: 0% 50%; 
+	/*
+	
+	perspective-origin: 0% 50%;
+	 
+	perspective: 2000;
+	-webkit-transform: rotateY(0deg); 
+	-webkit-transform-origin: 0% 50%; 
+	-webkit-perspective: 2000; 
+	-webkit-perspective-origin: 0% 50%; 
+	-moz-transform: rotateY(0deg); 
+	-moz-transform-origin: 0% 50%; 
+	-moz-perspective: 2000; 
+	-moz-perspective-origin: 0% 50%; 
+	-o-transform: rotateY(0deg); 
+	-o-transform-origin: 0% 50%; 
+	-o-perspective: 2000;
+	*/
+}
+
+.formsNotVisible {
+	transition: 0.6s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+	transform-style: preserve-3d;
+	-webkit-transform: rotateY(90deg);
+  -webkit-transform-origin: 0% 50%;
+	transform: rotateY(90deg);
+	transform-origin: 0% 50%;
+	-moz-transform: rotateY(90deg);
+	-moz-transform-origin: 0% 50%; 
+	
+	/*
+	transform: rotateY(90deg); 
+	perspective-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	perspective: 2000;
+	-webkit-transform: rotateY(90deg);
+	-webkit-transform-origin: 0% 50%; 
+	-webkit-perspective: 2000; 
+	-webkit-perspective-origin: 0% 50%; 
+	-moz-transform: scale(1.0) rotateY(90deg); 
+	-moz-transform-origin: 0% 50%; 
+	-moz-perspective: 2000; 
+	-moz-perspective-origin: 0% 50%; 
+	-o-transform: rotateY(90deg); 
+	-o-transform-origin: 0% 50%; 
+	-o-perspective: 2000;
+	*/
+}
+
+.mainContentStepForm
+{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: 100%;
+	background-color: $color-secondary-1-1;
+	color: $darkertextcolor;// $color-secondary-1-4;
+	padding: 10px;
+	z-index: 1;
+	display: block;
+	font-family: $font-stack-content;
+	font-size: 11pt;
+	&.wrapper {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: block;
+		overflow-y:auto;
+	}
+}
+
+#tocDiv .agsTOCOutOfScale {
+  display:none; 
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /*.header,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .header {
+    margin-bottom: 30px;
+  }*/
+}
