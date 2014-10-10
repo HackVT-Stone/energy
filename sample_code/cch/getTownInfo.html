@@ -1,0 +1,31 @@
+<script src="tabletop.js"></script>
+
+<body>
+</body>
+
+<script>
+	window.onload = function() { init() };
+     function init() {
+        Tabletop.init( { key: '14QIE2sG7tzOvktoYGBVT2P_BSCGwWc9Au8LaxKuzH9w',
+                         callback: showInfo,
+                         simpleSheet: true } );
+      }
+
+varTownDict = {}
+	  
+function showInfo(data) {
+	for (i = 0; i < data.length; i++){
+	
+		var townname = data[i].townname
+		delete data[i].townname
+		
+		var townExtent = eval("(" + data[i].extent + ")")
+		delete data[i].extent
+		
+		varTownDict[townname] = data[i]
+		varTownDict[townname].townExtent = townExtent
+
+		}
+		console.log(varTownDict);	
+	  }
+</script>
