@@ -1,0 +1,12 @@
+{
+  "headerConfig": {
+  },
+  "mainContentConfig": {
+    "mapHeight": 800,
+    "mapWidth": 800,
+    "mapExtent": {
+    }
+  },
+  "footerConfig": {
+  }
+}

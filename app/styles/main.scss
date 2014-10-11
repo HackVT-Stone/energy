@@ -1,0 +1,215 @@
+
+// bower:scss
+// endbower
+
+
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300italic,300,400italic,700,700italic,800,800italic);
+//@import url(http://fonts.googleapis.com/css?family=Syncopate:400,700);
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=GFS+Didot&subset=greek);
+
+$font-stack-header: 'Oswald', sans-serif; //'Syncopate', sans-serif;
+$font-stack-header-bold: 700;
+$font-stack-header-light: 400;
+
+$font-stack-content: 'GFS Didot', serif; //'Merriweather Sans', sans-serif;
+$font-stack-content-bold: 800;
+$font-stack-content-normal: 400;
+$font-stack-content-light: 300;
+
+$font-stack-content-header: 'Merriweather Sans', sans-serif;
+$font-stack-content-header-bold: 800;
+$font-stack-content-header-normal: 400;
+$font-stack-content-header-light: 300;
+$font-stack-content-header-size-h1: 16px;
+$font-stack-content-header-size-h3: 13px;
+$font-stack-content-header-margin-bottom-h1: 10px;
+$font-stack-content-header-margin-bottom-h3: 20px;
+
+$color-primary: #BBBBBB;
+
+* {
+	box-sizing: padding-box;	
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.body {
+  height: 100%;
+  width: 100%;
+}
+.header {
+  background-color: $color-primary;
+  color: $color-primary;
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 901;
+	box-shadow: 0 0 10px black;
+	padding-top: 5px;
+	padding-left: 5px;
+  div {
+    position: relative;
+    display: inline-block;
+  }
+  h3 {
+    margin: 5px 15px 5px 5px;
+    font-size: 22pt;
+    font-family: $font-stack-header;
+    font-weight: $font-stack-header-bold;
+  }
+  h2 {
+    margin: 10px 15px 10px 0;
+    font-size: 14pt;
+    font-family: $font-stack-header;
+    font-weight: $font-stack-header-bold;
+  }
+}
+.mainContent {
+  top: 50px;
+  bottom: 50px;
+  left: 0;
+  right: 300px;
+  position: absolute;
+  min-height: 50px;
+}
+
+.mainContentMapContainer {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: gray;
+}
+
+#map0 {
+	height: 100%;	
+}
+
+#toolbox {
+	position: absolute;
+	display: block;
+		width: 300px;
+		top: 50px;
+		bottom: 50px;
+		right: 0;
+		z-index: 50;
+}
+
+	#drawToolbar {
+		width: 300px;
+		height: 200px;
+		position: relative;
+		background-color: blue;
+	}
+
+.esri-map {
+  width: 100%;
+  height: 100%;
+}
+
+#geocoder {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  left: 74px;
+}
+
+
+
+.footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 19px;
+  color: #777;
+  height: 50px;
+  position: absolute;
+  background-color: $color-primary;
+  color: $color-primary;
+  z-index: 900;
+  box-shadow: 0 0 10px black;
+  h5 {
+  	margin-left: 10px;
+  	margin-bottom: 10px;	
+  }
+}
+
+
+.flapWrapper {
+	perspective: 3000px;
+	perspective-origin: 0 50%;
+
+	
+}
+
+.clickthrough {
+	pointer-events: none;	
+}
+
+.noclickthrough {
+	pointer-events: auto;	
+}
+
+
+.formsVisible {
+	transition: 0.6s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+	transform-style: preserve-3d;
+	-webkit-transform: rotateY(0deg);
+  -webkit-transform-origin: 0% 50%;
+	transform: rotateY(0deg);
+	transform-origin: 0% 50%;
+	-moz-transform: rotateY(0deg);
+	-moz-transform-origin: 0% 50%; 
+	/*
+	
+	perspective-origin: 0% 50%;
+	 
+	perspective: 2000;
+	-webkit-transform: rotateY(0deg); 
+	-webkit-transform-origin: 0% 50%; 
+	-webkit-perspective: 2000; 
+	-webkit-perspective-origin: 0% 50%; 
+	-moz-transform: rotateY(0deg); 
+	-moz-transform-origin: 0% 50%; 
+	-moz-perspective: 2000; 
+	-moz-perspective-origin: 0% 50%; 
+	-o-transform: rotateY(0deg); 
+	-o-transform-origin: 0% 50%; 
+	-o-perspective: 2000;
+	*/
+}
+
+.formsNotVisible {
+	transition: 0.6s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+	transform-style: preserve-3d;
+	-webkit-transform: rotateY(90deg);
+  -webkit-transform-origin: 0% 50%;
+	transform: rotateY(90deg);
+	transform-origin: 0% 50%;
+	-moz-transform: rotateY(90deg);
+	-moz-transform-origin: 0% 50%; 
+	
+	/*
+	transform: rotateY(90deg); 
+	perspective-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	perspective: 2000;
+	-webkit-transform: rotateY(90deg);
+	-webkit-transform-origin: 0% 50%; 
+	-webkit-perspective: 2000; 
+	-webkit-perspective-origin: 0% 50%; 
+	-moz-transform: scale(1.0) rotateY(90deg); 
+	-moz-transform-origin: 0% 50%; 
+	-moz-perspective: 2000; 
+	-moz-perspective-origin: 0% 50%; 
+	-o-transform: rotateY(90deg); 
+	-o-transform-origin: 0% 50%; 
+	-o-perspective: 2000;
+	*/
+}
+	
