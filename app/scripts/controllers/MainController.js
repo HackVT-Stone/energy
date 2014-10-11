@@ -86,6 +86,7 @@ define([
             	if (newValue == oldValue) {
                 return;
               }
+              $scope['selectedGraphic'] = {};
                 $scope['selectedGraphic'] = newValue;
                 updateChart(getProgress(),$scope['selectedTown'].energytotal);
                 console.log("towns _is_ updated at config service...");
@@ -94,7 +95,7 @@ define([
         
         $scope.$watch(
             function() {
-                var t = energyAppConfiguration.getGraphics().length;
+                var t = energyAppConfiguration.getGraphics();
                 console.log("are g updated at config service...?");
                 return t;
             },
@@ -107,6 +108,20 @@ define([
             }
         );
         
+        $scope.$watch(
+            function() {
+                var t = energyAppConfiguration.getClearChart();
+                console.log("are g updated at config service...?");
+                return t;
+            },
+            function(newValue, oldValue) {
+            	if (newValue == oldValue) {
+                return;
+              }
+              updateChart(0,0);
+                energyAppConfiguration.setClearChart(false);
+            }
+        );
         
         function getEnergyProgress(polyArray) {
         			if (polyArray.length == 0) return 0;

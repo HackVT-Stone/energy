@@ -138,8 +138,20 @@ define([
 				},
 				
 				setGraphics: function(glayer) {
+					currentGraphics = {};
+					maybeApply();
 					currentGraphics = glayer;
 					maybeApply();
+				},
+				
+				setClearChart: function(val) {
+					
+					clearChart = val;
+					maybeApply();
+				},
+				
+				getClearChart: function() {
+					return clearChart;	
 				},
 				
 				getLastGraphic: function() {

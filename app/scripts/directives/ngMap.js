@@ -482,10 +482,15 @@ define([
 
 					this.clearMap = function() {
 						map.graphics.clear();
+						energyAppConfiguration.setClearChart(true);
 					};
 
 				this.removeGraphic = function(g) {
 					gl.remove(g);
+					energyAppConfiguration.clearSetGraphic();
+					energyAppConfiguration.setGraphics({});
+					energyAppConfiguration.setGraphics(gl);
+					energyAppConfiguration.setClearChart(true);
 				};
 
 				};

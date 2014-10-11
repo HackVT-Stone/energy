@@ -423,14 +423,14 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    'ngAnnotate',
+    //'ngAnnotate',
     'copy:dist',
     'cdnify',
     'cssmin',
-    'uglify',
-    'filerev',
-    'usemin',
-    'htmlmin'
+    //'uglify',
+    //'filerev',
+    //'usemin',
+    //'htmlmin'
   ]);
 
   grunt.registerTask('default', [

@@ -39,55 +39,55 @@ $color-hover: rgb(191,191,191);
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .body {
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
 }
 .header {
-  background-color: $color-primary;
-  color: $color-text;
-  height: 50px;
-  top: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
-  z-index: 901;
+	background-color: $color-primary;
+	color: $color-text;
+	height: 50px;
+	top: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	z-index: 901;
 	box-shadow: 0 0 10px black;
 	padding-top: 5px;
 	padding-left: 5px;
-  div {
-    position: relative;
-    display: inline-block;
-  }
-  h3 {
-    margin: 5px 15px 5px 5px;
-    font-size: 26pt;
-    font-family: $font-stack-header;
-    font-weight: $font-stack-header-bold;
-  }
-  h2 {
-    margin: 10px 15px 10px 0;
-    font-size: 14pt;
-    font-family: $font-stack-header;
-    font-weight: $font-stack-header-bold;
-  }
-      
+	div {
+		position: relative;
+		display: inline-block;
+	}
+	h3 {
+		margin: 5px 15px 5px 5px;
+		font-size: 26pt;
+		font-family: $font-stack-header;
+		font-weight: $font-stack-header-bold;
+	}
+	h2 {
+		margin: 10px 15px 10px 0;
+		font-size: 14pt;
+		font-family: $font-stack-header;
+		font-weight: $font-stack-header-bold;
+	}
+
 }
 .mainContent {
-  top: 50px;
-  bottom: 30px;
-  left: 0;
-  right: 300px;
-  position: absolute;
-  min-height: 50px;
+	top: 50px;
+	bottom: 30px;
+	left: 0;
+	right: 300px;
+	position: absolute;
+	min-height: 50px;
 }
 
 .mainContentMapContainer {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  background-color: gray;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	background-color: gray;
 }
 
 #map0 {
@@ -99,124 +99,152 @@ $color-hover: rgb(191,191,191);
 	overflow-x: hidden;
 	position: absolute;
 	display: block;
-    background-color: $color-secondary;
-    color: $color-primary;
-		width: 300px;
-		top: 50px;
-		bottom: 30px;
-		right: 0;
-		z-index: 50;
+	background-color: $color-secondary;
+	color: $color-primary;
+	width: 300px;
+	top: 50px;
+	bottom: 30px;
+	right: 0;
+	z-index: 50;
 }
 
-	#drawToolbar {
-		/*width: 300px;
-		height: 100px;
-        */
-		position: relative;
-        padding-left: 20px;
-        margin-top: 10px;
-		
+#drawToolbar {
+	/*width: 300px;
+	height: 100px;
+	*/
+	position: relative;
+	padding-left: 20px;
+	margin-top: 10px;
+font-weight: bold;
+font-size: 12pt;
+}
+.drawToolbarP{
+	color: white;
+	/*font-size: 14px;*/
+	font-weight: $font-stack-header-bold;
+	padding-right: 20px;
+}
+
+#toolintro {
+	margin: 10px 15px 0px 0px;
+	color: white;
+	padding-left: 20px;
+	font-size: 12pt;
+	font-family: $font-stack-header;
+	font-weight: $font-stack-header-bold;
+}
+#townName {
+	color: white;
+	font-weight: $font-stack-header-bold;
+}
+
+.townInfo {
+	padding-left: 20px;
+	margin-top: 10px;
+	font-size: 12pt;
+	font-weight: bold;
+	
+	.data {
+		color: white;
 	}
-        .drawToolbarP{
-            color: white;
-            /*font-size: 14px;*/
-            font-weight: $font-stack-header-bold;
-            padding-right: 20px;
-        }
+	
+	p {
+		margin-bottom: 5px;
+	}
+}
 
-    #toolintro {
-        margin: 10px 15px 0px 0px;
-        color: white;
-        padding-left: 20px;
-        font-size: 12pt;
-        font-family: $font-stack-header;
-        font-weight: $font-stack-header-bold;
-    }
-    #townName {
-        color: white;
-        font-weight: $font-stack-header-bold;
-    }
+.selectedPanel {
+	padding-left: 20px;
+	margin-bottom: 10px;
+	font-weight: bold;
+		font-size: 12pt;
+	.data {
+		color: white;
+	}
+.selectedP {
+	float: left;
+	font-weight: $font-stack-header-bold;
+	color: white;
+	margin-top: 10px;
+	}
+	.dbutton {
+		
+		margin-top: 10px;
+	}
+}
 
-    #townInfo {
-        padding-left: 20px;
-        margin-top: 10px;
-    }
-    #selectedPanel {
-        padding-left: 20px;
-        margin-bottom: 10px;
-    }
-    #selectedP {
-        float: left;
-        font-weight: $font-stack-header-bold;
-        color: white;
-        margin-top: 10px;
-    }
-    select {
-        margin-top: 10px;
-        margin-left: 20px;
-        padding-left: 20px;
-    }
+	
+	
+	
+select {
+	margin-top: 10px;
+	margin-left: 20px;
+	padding-left: 20px;
+	font-size: 12pt;
+	color: black;
+	background-color: white;
+}
 
-    p {
-        padding: 0px;
-        margin: 0px;
-    }
-    .clear {
-        clear: both;
-    }
+p {
+	padding: 0px;
+	margin: 0px;
+}
+.clear {
+	clear: both;
+}
 
-    button {
-        color: $color-text;
-    }
-    .toolButton{
-        float: left;
-        padding: 5px;
-    }
-    #addSolar:hover {
-        background-color: $color-primary;
-    }
+button {
+	color: $color-text;
+}
+.toolButton{
+	float: left;
+	padding: 5px;
+}
+#addSolar:hover {
+	background-color: $color-primary;
+}
 
 
 .esri-map {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 #geocoder {
-  display: block;
-  position: absolute;
-  z-index: 2;
-  top: 20px;
-  left: 74px;
+	display: block;
+	position: absolute;
+	z-index: 2;
+	top: 20px;
+	left: 74px;
 }
 
 
 
 .footer {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding-top: 3x;
-  color: #777;
-  //height: 30px;
-  position: absolute;
-  background-color: $color-primary;
-  color: $color-text;
-  z-index: 900;
-  box-shadow: 0 0 10px black;
-  h5 {
-  	margin-left: 10px;
-  	margin-bottom: 10px;	
-  }
-    .linkl {
-  	margin-left: 10px;
-  	margin-bottom: 10px;	
-  	float:left;
-  }
-      .linkr {
-  	float:right;
-  	margin: 10px;
-  }
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-top: 3x;
+	color: #777;
+	//height: 30px;
+	position: absolute;
+	background-color: $color-primary;
+	color: $color-text;
+	z-index: 900;
+	box-shadow: 0 0 10px black;
+	h5 {
+		margin-left: 10px;
+		margin-bottom: 10px;	
+	}
+	.linkl {
+		margin-left: 10px;
+		margin-bottom: 10px;	
+		float:left;
+	}
+	.linkr {
+		float:right;
+		margin: 10px 30px 10px 10px;
+	}
 }
 
 
@@ -224,7 +252,7 @@ $color-hover: rgb(191,191,191);
 	perspective: 3000px;
 	perspective-origin: 0 50%;
 
-	
+
 }
 
 .clickthrough {
@@ -240,15 +268,15 @@ $color-hover: rgb(191,191,191);
 	transition: 0.6s cubic-bezier(0.680, -0.550, 0.265, 1.550);
 	transform-style: preserve-3d;
 	-webkit-transform: rotateY(0deg);
-  -webkit-transform-origin: 0% 50%;
+	-webkit-transform-origin: 0% 50%;
 	transform: rotateY(0deg);
 	transform-origin: 0% 50%;
 	-moz-transform: rotateY(0deg);
 	-moz-transform-origin: 0% 50%; 
 	/*
-	
+
 	perspective-origin: 0% 50%;
-	 
+
 	perspective: 2000;
 	-webkit-transform: rotateY(0deg); 
 	-webkit-transform-origin: 0% 50%; 
@@ -268,12 +296,12 @@ $color-hover: rgb(191,191,191);
 	transition: 0.6s cubic-bezier(0.680, -0.550, 0.265, 1.550);
 	transform-style: preserve-3d;
 	-webkit-transform: rotateY(90deg);
-  -webkit-transform-origin: 0% 50%;
+	-webkit-transform-origin: 0% 50%;
 	transform: rotateY(90deg);
 	transform-origin: 0% 50%;
 	-moz-transform: rotateY(90deg);
 	-moz-transform-origin: 0% 50%; 
-	
+
 	/*
 	transform: rotateY(90deg); 
 	perspective-origin: 0% 50%;
@@ -292,4 +320,3 @@ $color-hover: rgb(191,191,191);
 	-o-perspective: 2000;
 	*/
 }
-	

@@ -2,19 +2,19 @@
 	
 	
 	<div id="toolintro">
-    Choose a community and start planning your clean energy future!
-    </div>    
+    Choose a Community and Start Planning Your Clean Energy Future!
+    </div>
     <select ng-model="selectedTown"
 		ng-options="name for (name, value) in townList" ng-change="change(selectedTown)">
 	</select>
-	<div id="townInfo">
-        <p id="townName">{{selectedTown.name}} Statistics</p>
-        <p id="townUse">Annual Use (kWh): {{selectedTown.energytotal | number : 0}}</p>
-        <p id="townUse">Average Use/Household (kWh): {{selectedTown.energyhousehold | number :0}}</p>
+	<div class="townInfo">
+        <p class="townName"><span class="data">{{selectedTown.name}} </span>Statistics</p>
+        <p >Annual Use (kWh): <span class="data"> {{selectedTown.energytotal | number : 0}} </span></p>
+        <p >Average Use/</br>Household (kWh): <span class="data">{{selectedTown.energyhousehold | number :0}}</span></p>
     </div>
 	<div id="drawToolbar">
 		<!-- <button id="Point">Point</button> -->
-        <p class="drawToolbarP">Click below then draw on the map to build solar panels</p>
+        <p class="drawToolbarP">Click the button below to draw on the map to build solar panels</p>
         <div class="toolButton">
         	<button id="Polygon">Add Solar Panels</button>
         	</div>
@@ -23,11 +23,11 @@
         </div>
 	</div>
 	
-    <div id="selectedPanel" style="clear: both;">
-        <p id="selectedP">Selected Panels </p>
-        <p class="clear">Area (m2): {{selectedGraphic.attributes.area  | number : 0}}</p>
-        <p class="clear">Energy (kWh): {{selectedGraphic.attributes.energy | number : 0}}</p>
-        <div><button id="deleteSelected" ng-click="deleteGraphic();">Delete Selected</button></div>
+    <div class="selectedPanel">
+        <p class="selectedP">Selected Panels </p>
+        <p class="clear ">Area (m2): <span class="data">{{selectedGraphic.attributes.area  | number : 0}}</span></p>
+        <p class="clear">Energy (kWh):<span class="data"> {{selectedGraphic.attributes.energy | number : 0}}</span></p>
+        <div class="dbutton"><button id="deleteSelected" ng-click="deleteGraphic();">Delete Selected</button></div>
     </div>
  
  <div google-chart chart='chartObject' style='{{chart.cssStyle}}'></div>
