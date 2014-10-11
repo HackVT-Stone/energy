@@ -1,10 +1,6 @@
 <div id="toolbox">
 	
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> 42615e7c802bf41b64c3cc360f24349f8233dacd
 	<div id="toolintro">
     Choose a community and start planning your clean energy future!
     </div>    
@@ -19,19 +15,20 @@
 	<div id="drawToolbar">
 		<!-- <button id="Point">Point</button> -->
         <p class="drawToolbarP">Click below then draw on the map to build solar panels</p>
-        <div class="toolButton">
-        	<button id="Polygon">Add Solar Panels</button>
-        	</div>
-        <div class="toolButton">
-        	<button id="clearMap">Clear Map</button>
-        </div>
+        <div class="toolButton"><button id="addSolar", title="Click button then draw on map to add solar panels. Double-click to complete array and calculate energy.">Add Solar Panels</button></div><div class="toolButton"><button id="clearMap", title="Clear all solar panels and start over.">Clear Map</button>
 	</div>
 	
     <div id="selectedPanel">
         <p id="selectedP">Selected Panels </p>
+<<<<<<< HEAD
+        <p class="clear">Area (m2): {{selectedGraphic.attributes.area}}</p>
+        <p class="clear">Energy (kWh): {{selectedGraphic.attributes.energy}}</p>
+        <div class="toolButton"><button id="deleteSelected" ng-click="deleteGraphic();">Delete Selected</button></div>
+=======
         <p class="clear">Area (m2): {{selectedGraphic.area}}</p>
         <p class="clear">Energy (kWh): {{selectedGraphic.energy}}</p>
-        <div class="toolButton"><button id="deleteSelected">Delete Selected</button></div>
+        <div class="toolButton"><button id="deleteSelected", title="Click to delete selected solar array.">Delete Selected</button></div>
+>>>>>>> 26f20b7a4e464281f1221ca9c223b242bdfdc146
     </div>
     
     <div id="mapTools">

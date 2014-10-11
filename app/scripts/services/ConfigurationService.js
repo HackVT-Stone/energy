@@ -67,6 +67,12 @@ define([
 			
 			townInit();
 			return {
+				doReset: function() {
+					var currentGraphics = [];
+					var selectedTown = '';
+					var selectedGraphic = {};
+					maybeApply();
+				},
 				// Simple getter for config data.
 				getConfig: function() {
 					return contentConfig;
@@ -128,12 +134,12 @@ define([
 			},
 			
 				getGraphics: function() {
-					maybeApply();
 					return currentGraphics;
 				},
 				
 				setGraphics: function(glayer) {
 					currentGraphics = glayer;
+					maybeApply();
 				},
 				
 				getLastGraphic: function() {

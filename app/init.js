@@ -8,5 +8,6 @@ require([
 	],
 	function(angular) {
 		
-  	angular.bootstrap(document.body, ['energy']);
+  		angular.bootstrap(document.body, ['energy']);
+
 });

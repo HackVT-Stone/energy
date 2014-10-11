@@ -15,7 +15,8 @@ define([
     	'mgcrea.ngStrap',
     	'MainController','HeaderController','FooterController','MapController',
     	'ConfigurationService',
-    	'ngMap','ngFeatureLayer'
+    	'ngMap','ngFeatureLayer',
+    	'googlechart'
     	]);
 
     return energy;

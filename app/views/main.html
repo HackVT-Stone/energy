@@ -9,8 +9,8 @@
 	</select>
 	<div id="townInfo">
         <p id="townName">{{selectedTown.name}} Statistics</p>
-        <p id="townUse">Annual Use (kWh): {{selectedTown.energytotal}}</p>
-        <p id="townUse">Average Use/Household (kWh): {{selectedTown.energyhousehold}}</p>
+        <p id="townUse">Annual Use (kWh): {{selectedTown.energytotal | number : 0}}</p>
+        <p id="townUse">Average Use/Household (kWh): {{selectedTown.energyhousehold | number :0}}</p>
     </div>
 	<div id="drawToolbar">
 		<!-- <button id="Point">Point</button> -->
@@ -23,16 +23,15 @@
         </div>
 	</div>
 	
-    <div id="selectedPanel">
+    <div id="selectedPanel" style="clear: both;">
         <p id="selectedP">Selected Panels </p>
-        <p class="clear">Area (m2): {{selectedGraphic.attributes.area}}</p>
-        <p class="clear">Energy (kWh): {{selectedGraphic.attributes.energy}}</p>
-        <div class="toolButton"><button id="deleteSelected" ng-click="deleteGraphic();">Delete Selected</button></div>
+        <p class="clear">Area (m2): {{selectedGraphic.attributes.area  | number : 0}}</p>
+        <p class="clear">Energy (kWh): {{selectedGraphic.attributes.energy | number : 0}}</p>
+        <div><button id="deleteSelected" ng-click="deleteGraphic();">Delete Selected</button></div>
     </div>
-    
-    <div id="mapTools">
-		
-	</div>
+ 
+ <div google-chart chart='chartObject' style='{{chart.cssStyle}}'></div>
+    <img style="width: 100%;margin: 10px;" src="images/legend.png"/>
     
 </div>
 <div class="mainContent">

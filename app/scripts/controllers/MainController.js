@@ -16,6 +16,9 @@ define([
         $scope['town'] = '';
 				$scope['selectedTown'] = energyAppConfiguration.getTowns()[energyAppConfiguration.getSelectedTown()];
 				$scope['graphic'] = energyAppConfiguration.getSelectedGraphic();
+				$scope['chartObject'] = {};
+				$scope.chartObject.type = 'ColumnChart';
+				updateChart(0,0);
 				
 				$scope['deleteGraphic'] = function() {
 					energyAppConfiguration.deleteSelectedGraphic();
@@ -63,6 +66,8 @@ define([
             		return;
             	}
             	else {	
+            		energyAppConfiguration.doReset();
+            		$scope['selectedGraphic'] = {};
                 $scope['town'] = newValue;
                 $scope['selectedTown'] = energyAppConfiguration.getTowns()[$scope['town']];
                 console.log("towns _is_ updated at config service...");
@@ -82,64 +87,80 @@ define([
                 return;
               }
                 $scope['selectedGraphic'] = newValue;
+                updateChart(getProgress(),$scope['selectedTown'].energytotal);
                 console.log("towns _is_ updated at config service...");
             }
         );
         
+        $scope.$watch(
+            function() {
+                var t = energyAppConfiguration.getGraphics().length;
+                console.log("are g updated at config service...?");
+                return t;
+            },
+            function(newValue, oldValue) {
+            	if (newValue == oldValue) {
+                return;
+              }
+              updateChart(0,0);
+                updateChart(getProgress(),$scope['selectedTown'].energytotal);
+            }
+        );
+        
+        
+        function getEnergyProgress(polyArray) {
+        			if (polyArray.length == 0) return 0;
+                var progress = 0;
+                for (var i = 0; i < polyArray.length; i++) {
+                    progress += polyArray[i].attributes.energy;
+                }
+                return progress;
+            }
+        
+        function getProgress() {
+        	var ga = energyAppConfiguration.getGraphics().graphics;
+        	return getEnergyProgress(ga);
+        };
         
         $scope['change'] = function(foo) {
         	energyAppConfiguration.selectTown(foo.name);
         };
-        
-//        $scope.$watch(
-//            function() {
-//                return $scope['selectedTown'];
-//            },
-//            function(newValue, oldValue) {
-//            	if (newValue == oldValue) {
-//            		return;
-//            	}
-//            	else {	
-//                energyAppConfiguration.setSelectedTown(newValue);
-//                console.log("towns _is_ updated at config service...");
-//              }
-//            },
-//            true
-//        );
-         
-         
-         
-         
-         
-         $scope['loadChart'] = function() {
-					google.load("visualization", "1", {packages:["corechart"]});
-//					google.setOnLoadCallback(function() {drawChart(5100000,5000000);});
-					
-					function drawChart(prog, targ) {
-//					if (prog >= targ) {progColor = 'color: green';}
-//					else {progColor = 'color: red';}
-//					var data = google.visualization.arrayToDataTable([
-//					['Category', 'Energy (kWh)',{role: 'style'}],
-//					['Supply',  prog, progColor],
-//					['Demand',  targ, 'color: blue'],
-//					]);
-//					labelFont = 'Arial';
-//					var options = {
-//					title: 'Annual Energy Budget (kWh)',
-//					titleTextStyle: {color: 'black', fontName: labelFont, fontSize: 28, bold: true},
-//					legend: {position: 'none'},
-//					vAxis: {textStyle: {color: 'black', fontName: 'Arial', fontSize: 24}, minValue: 0, maxValue: 1000000},
-//					hAxis: {textStyle: {color: 'black', fontName: 'Arial', fontSize: 24}}
-					};
-					
-					//var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-					
-					//chart.draw(data, options);
 
-					}	
-        }
-        
-        $scope.loadChart();
+
+       
+         
+         
+         function updateChart(prog,targ) {
+         
+         
+         var gdata ={"cols": [
+		        {id: "t", label: "Category", type: "string"},
+		        {id: "s", label: "Energy (kWh)", type: "number"}
+				    ], "rows": [
+				        {c: [
+				            {v: "Supply"},
+				            {v: prog},
+				        ]},
+				        {c: [
+				            {v: "Demand"},
+				            {v: targ}
+				        ]},
+				    ]};
+
+         $scope.chartObject.options = {
+        		'title': 'Annual Energy Budget (kWh)',
+        		'titleTextStyle': {'color': 'black',  'fontSize': 14, 'bold': true},
+        		'legend': {'position': 'none'},
+        		'vAxis': {
+        			'textStyle': {'color': 'black', 'fontName': 'Arial', 'fontSize': 12},
+        			'minValue': 0, 
+        			'maxValue': 1000000},
+        		'hAxis': {'textStyle': {'color': 'black', 'fontName': 'Arial', 'fontSize': 12}}
+    			};
+    			$scope.chartObject.data = gdata;
+    			
+    		}
+
          
     }
   ]);
