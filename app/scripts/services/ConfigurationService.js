@@ -14,7 +14,8 @@ define([
 			var currentGraphics = [];
 			currentState['mainMap'] = {};
 			var townDict = {};
-			var selectedTown = "";
+			var selectedTown = '';
+			var selectedGraphic = {};
 			
 			function townInit() {
 				Tabletop.init( { key: '14QIE2sG7tzOvktoYGBVT2P_BSCGwWc9Au8LaxKuzH9w',
@@ -96,6 +97,14 @@ define([
 	
 				getTowns : function() {
 						return townDict;
+				},
+	
+				selectGraphic: function(g) {
+					selectedGraphic = g;
+				},
+				
+				getSelectedGraphic: function(g) {
+					return selectedGraphic;	
 				},
 	
 				selectTown: function(town) {
