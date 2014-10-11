@@ -156,7 +156,7 @@ define([
 				var mapOptions = {
 					center: ($attrs.center) ? initCenter : $scope.center,
 					zoom: ($attrs.zoom) ? $attrs.zoom : $scope.zoom,
-					basemap: ($attrs.basemap) ? $attrs.basemap : $scope.basemap,
+					basemap: 'satellite', //($attrs.basemap) ? $attrs.basemap : $scope.basemap,
 					showInfoWindowOnClick: true,
 				};
 				var order;
@@ -187,7 +187,7 @@ define([
 				mapService_parcels.setVisibleLayers([1]);
 
 				var mapService_energy = new ArcGISDynamicMapServiceLayer("http://ags.stone-env.net/arcgis/rest/services/Storymaps/HackVT/MapServer");
-
+mapService_energy.setOpacity(0.7);
 				var gl = new GraphicsLayer();
 
 				var fillSymbol = new PictureFillSymbol(
