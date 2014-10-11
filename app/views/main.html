@@ -1,16 +1,33 @@
 <div id="toolbox">
 	
-	<select ng-model="selectedTown"
+	<div id="Intro">
+    Choose a town and start planning your clean energy future!
+    </div>
+    
+    <select ng-model="selectedTown"
 		ng-options="name for (name, value) in townList">
 	</select>
-	
+	<div id="townInfo">
+        <p id="townName">{{selectedTown.townName}} Stats</p>
+        <p id="townUse">Annual Use (kWh): {{selectedTown.energyTotal}}</p>
+        <p id="townUse">Average Use/Household (kWh): {{selectedTown.energyHousehold}}</p>
+    </div>
 	<div id="drawToolbar">
-		<button id="Point">Point</button>
-		<button id="Polygon">Polygon</button>
+		<!-- <button id="Point">Point</button> -->
+		<button id="Polygon">Add Solar Panels</button>
 	</div>
-	<div id="mapTools">
-		<div id="clearMap">Clear Map</div>
+	
+    <div id="selectedPanel">
+        <p>Selected Panels</p>
+        <p id="selectedArea">Area (m2): {{selectedGraphic.area}}</p>
+        <p id="selectedEnergy">Energy (kWh): {{selectedGraphic.energy}}</p>
+        <div id="deleteSelected"><button id="deleteSelected">Delete</button></div>
+    </div>
+    
+    <div id="mapTools">
+		<div id="clearMap"><button id="clearMap">Clear Map</button></div>
 	</div>
+    
 </div>
 <div class="mainContent">
     <div class="mainContentMapContainer"
