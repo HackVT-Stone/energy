@@ -126,6 +126,9 @@ button {
   float: left;
   padding: 5px; }
 
+#addSolar:hover {
+  background-color: #d9d9d9; }
+
 .esri-map {
   width: 100%;
   height: 100%; }

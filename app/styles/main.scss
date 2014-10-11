@@ -30,6 +30,7 @@ $font-stack-content-header-margin-bottom-h3: 20px;
 $color-primary: rgb(217,217,217);
 $color-text: rgb(85,142,213);
 $color-secondary: rgb(39,92,157);
+$color-hover: rgb(191,191,191);
 
 * {
 	box-sizing: padding-box;	
@@ -168,6 +169,9 @@ $color-secondary: rgb(39,92,157);
     .toolButton{
         float: left;
         padding: 5px;
+    }
+    #addSolar:hover {
+        background-color: $color-primary;
     }
 
 
