@@ -7,17 +7,18 @@
 //@import url(http://fonts.googleapis.com/css?family=Syncopate:400,700);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
 @import url(http://fonts.googleapis.com/css?family=GFS+Didot&subset=greek);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,700);
 
-$font-stack-header: 'Oswald', sans-serif; //'Syncopate', sans-serif;
+$font-stack-header: 'Open Sans', sans-serif; //'Syncopate', sans-serif;
 $font-stack-header-bold: 700;
 $font-stack-header-light: 400;
 
-$font-stack-content: 'GFS Didot', serif; //'Merriweather Sans', sans-serif;
+$font-stack-content: 'Open Sans', serif; //'Merriweather Sans', sans-serif;
 $font-stack-content-bold: 800;
 $font-stack-content-normal: 400;
 $font-stack-content-light: 300;
 
-$font-stack-content-header: 'Merriweather Sans', sans-serif;
+$font-stack-content-header: 'Open Sans', sans-serif;
 $font-stack-content-header-bold: 800;
 $font-stack-content-header-normal: 400;
 $font-stack-content-header-light: 300;
@@ -26,7 +27,9 @@ $font-stack-content-header-size-h3: 13px;
 $font-stack-content-header-margin-bottom-h1: 10px;
 $font-stack-content-header-margin-bottom-h3: 20px;
 
-$color-primary: #BCCBBB;
+$color-primary: rgb(217,217,217);
+$color-text: rgb(85,142,213);
+$color-secondary: rgb(39,92,157);
 
 * {
 	box-sizing: padding-box;	
@@ -40,7 +43,7 @@ $color-primary: #BCCBBB;
 }
 .header {
   background-color: $color-primary;
-  color: black;
+  color: $color-text;
   height: 50px;
   top: 0;
   left: 0;
@@ -56,7 +59,7 @@ $color-primary: #BCCBBB;
   }
   h3 {
     margin: 5px 15px 5px 5px;
-    font-size: 22pt;
+    font-size: 26pt;
     font-family: $font-stack-header;
     font-weight: $font-stack-header-bold;
   }
@@ -66,10 +69,11 @@ $color-primary: #BCCBBB;
     font-family: $font-stack-header;
     font-weight: $font-stack-header-bold;
   }
+      
 }
 .mainContent {
   top: 50px;
-  bottom: 50px;
+  bottom: 30px;
   left: 0;
   right: 300px;
   position: absolute;
@@ -92,19 +96,61 @@ $color-primary: #BCCBBB;
 #toolbox {
 	position: absolute;
 	display: block;
+    background-color: $color-secondary;
+    color: $color-primary;
 		width: 300px;
 		top: 50px;
-		bottom: 50px;
+		bottom: 30px;
 		right: 0;
 		z-index: 50;
 }
 
 	#drawToolbar {
 		width: 300px;
-		height: 200px;
+		height: 100px;
 		position: relative;
-		background-color: blue;
+        padding: 20px;
+		
 	}
+        .drawToolbarP{
+            color: white;
+            font-size: 14px;
+        }
+
+    #toolintro {
+        margin: 5px 15px 5px 5px;
+        color: white;
+        padding-left: 10px;
+        font-size: 12pt;
+        font-family: $font-stack-header;
+        font-weight: $font-stack-header-bold;
+    }
+    #townInfo {
+        padding: 20px;
+    }
+    #selectedPanel {
+        padding: 20px;
+    }
+    #selectedP {
+        float: left;
+    }
+
+    p {
+        padding: 0px;
+        margin: 0px;
+    }
+    .clear {
+        clear: both;
+    }
+
+    button {
+        color: $color-text;
+    }
+    .toolButton{
+        float: left;
+        padding: 5px;
+    }
+
 
 .esri-map {
   width: 100%;
@@ -125,12 +171,12 @@ $color-primary: #BCCBBB;
   bottom: 0;
   left: 0;
   right: 0;
-  padding-top: 19px;
+  padding-top: 3x;
   color: #777;
-  height: 50px;
+  height: 30px;
   position: absolute;
   background-color: $color-primary;
-  color: $color-primary;
+  color: $color-text;
   z-index: 900;
   box-shadow: 0 0 10px black;
   h5 {

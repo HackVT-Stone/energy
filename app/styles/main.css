@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300italic,300,400italic,700,700italic,800,800italic);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
 @import url(http://fonts.googleapis.com/css?family=GFS+Didot&subset=greek);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,700);
 * {
   box-sizing: padding-box; }
 
@@ -12,8 +13,8 @@
   width: 100%; }
 
 .header {
-  background-color: #BCCBBB;
-  color: black;
+  background-color: #d9d9d9;
+  color: #558ed5;
   height: 50px;
   top: 0;
   left: 0;
@@ -28,18 +29,18 @@
     display: inline-block; }
   .header h3 {
     margin: 5px 15px 5px 5px;
-    font-size: 22pt;
-    font-family: 'Oswald', sans-serif;
+    font-size: 26pt;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700; }
   .header h2 {
     margin: 10px 15px 10px 0;
     font-size: 14pt;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700; }
 
 .mainContent {
   top: 50px;
-  bottom: 50px;
+  bottom: 30px;
   left: 0;
   right: 300px;
   position: absolute;
@@ -59,17 +60,54 @@
 #toolbox {
   position: absolute;
   display: block;
+  background-color: #275c9d;
+  color: #d9d9d9;
   width: 300px;
   top: 50px;
-  bottom: 50px;
+  bottom: 30px;
   right: 0;
   z-index: 50; }
 
 #drawToolbar {
   width: 300px;
-  height: 200px;
+  height: 100px;
   position: relative;
-  background-color: blue; }
+  padding: 20px; }
+
+.drawToolbarP {
+  color: white;
+  font-size: 14px; }
+
+#toolintro {
+  margin: 5px 15px 5px 5px;
+  color: white;
+  padding-left: 10px;
+  font-size: 12pt;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700; }
+
+#townInfo {
+  padding: 20px; }
+
+#selectedPanel {
+  padding: 20px; }
+
+#selectedP {
+  float: left; }
+
+p {
+  padding: 0px;
+  margin: 0px; }
+
+.clear {
+  clear: both; }
+
+button {
+  color: #558ed5; }
+
+.toolButton {
+  float: left;
+  padding: 5px; }
 
 .esri-map {
   width: 100%;
@@ -86,12 +124,12 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding-top: 19px;
+  padding-top: 3x;
   color: #777;
-  height: 50px;
+  height: 30px;
   position: absolute;
-  background-color: #BCCBBB;
-  color: #BCCBBB;
+  background-color: #d9d9d9;
+  color: #558ed5;
   z-index: 900;
   box-shadow: 0 0 10px black; }
   .footer h5 {
