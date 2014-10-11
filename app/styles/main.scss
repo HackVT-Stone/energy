@@ -116,7 +116,9 @@ $color-secondary: rgb(39,92,157);
 	}
         .drawToolbarP{
             color: white;
-            font-size: 14px;
+            /*font-size: 14px;*/
+            font-weight: $font-stack-header-bold;
+            padding-right: 20px;
         }
 
     #toolintro {
@@ -127,15 +129,24 @@ $color-secondary: rgb(39,92,157);
         font-family: $font-stack-header;
         font-weight: $font-stack-header-bold;
     }
+    #townName {
+        color: white;
+        font-weight: $font-stack-header-bold;
+    }
+
     #townInfo {
         padding-left: 20px;
         margin-top: 10px;
     }
     #selectedPanel {
         padding-left: 20px;
+        
     }
     #selectedP {
         float: left;
+        font-weight: $font-stack-header-bold;
+        color: white;
+        margin-top: 10px;
     }
     select {
         margin-top: 10px;

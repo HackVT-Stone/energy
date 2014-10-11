@@ -78,7 +78,9 @@
 
 .drawToolbarP {
   color: white;
-  font-size: 14px; }
+  /*font-size: 14px;*/
+  font-weight: 700;
+  padding-right: 20px; }
 
 #toolintro {
   margin: 10px 15px 0px 0px;
@@ -86,6 +88,10 @@
   padding-left: 20px;
   font-size: 12pt;
   font-family: 'Open Sans', sans-serif;
+  font-weight: 700; }
+
+#townName {
+  color: white;
   font-weight: 700; }
 
 #townInfo {
@@ -96,7 +102,10 @@
   padding-left: 20px; }
 
 #selectedP {
-  float: left; }
+  float: left;
+  font-weight: 700;
+  color: white;
+  margin-top: 10px; }
 
 select {
   margin-top: 10px;
