@@ -1,26 +1,27 @@
 <div id="toolbox">
 	
-
+<<<<<<< HEAD
+	<select ng-model="selectedTown"
+		ng-options="name for (name, value) in townList" ng-change="change(selectedTown)">
+		<option value="">Select A Town</option>
+=======
 	<div id="toolintro">
     Choose a community and start planning your clean energy future!
-    </div>    
+    </div>
+    
     <select ng-model="selectedTown"
-		ng-options="name for (name, value) in townList" ng-change="change(selectedTown)">
+		ng-options="name for (name, value) in townList">
+>>>>>>> df1edfb8b17767fa9fee00a41adbcdc08e2f231e
 	</select>
 	<div id="townInfo">
-        <p id="townName">{{selectedTown.name}} Statistics</p>
-        <p id="townUse">Annual Use (kWh): {{selectedTown.energytotal}}</p>
-        <p id="townUse">Average Use/Household (kWh): {{selectedTown.energyhousehold}}</p>
+        <p id="townName">{{selectedTown.townName}} Statistics</p>
+        <p id="townUse">Annual Use (kWh): {{selectedTown.energyTotal}}</p>
+        <p id="townUse">Average Use/Household (kWh): {{selectedTown.energyHousehold}}</p>
     </div>
 	<div id="drawToolbar">
 		<!-- <button id="Point">Point</button> -->
         <p class="drawToolbarP">Click below then draw on the map to build solar panels</p>
-        <div class="toolButton">
-        	<button id="Polygon">Add Solar Panels</button>
-        	</div>
-        <div class="toolButton">
-        	<button id="clearMap">Clear Map</button>
-        </div>
+        <div class="toolButton"><button id="Polygon">Add Solar Panels</button></div><div class="toolButton"><button id="clearMap">Clear Map</button></div>
 	</div>
 	
     <div id="selectedPanel">
