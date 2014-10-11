@@ -14,7 +14,9 @@ define([
         $scope['config'] = energyAppConfiguration.getConfig();
         $scope['townList'] = [];
         $scope['selectedTown'] = '';
-
+				$scope['town'] = energyAppConfiguration.getTowns()[energyAppConfiguration.getSelectedTown()];
+				$scope['graphic'] = energyAppConfiguration.getSelectedGraphic();
+				
 
         $scope.$watch(
             function() {

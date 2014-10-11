@@ -102,6 +102,10 @@ define([
 				selectGraphic: function(g) {
 					selectedGraphic = g;
 				},
+				
+				getSelectedGraphic: function(g) {
+					return selectedGraphic;	
+				},
 	
 				selectTown: function(town) {
 					selectedTown = town;
