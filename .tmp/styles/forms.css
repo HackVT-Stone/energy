@@ -1,0 +1,172 @@
+/* Main Primary color */
+/* Main Secondary color (1) */
+/* Main Secondary color (2) */
+/* line 39, ../../app/styles/forms.scss */
+.tab-content {
+  padding: 10px;
+  border-left: 1px solid RGBA(221, 221, 221, 1);
+  border-right: 1px solid RGBA(221, 221, 221, 1);
+  border-bottom: 1px solid RGBA(221, 221, 221, 1);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: white;
+}
+
+/* line 49, ../../app/styles/forms.scss */
+.formBanner {
+  float: right;
+  height: 200px;
+  width: auto;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+/* line 57, ../../app/styles/forms.scss */
+.formTitle {
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* line 64, ../../app/styles/forms.scss */
+.formIntro {
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+/* line 71, ../../app/styles/forms.scss */
+.formContent {
+  margin: 20px 0;
+}
+/* line 74, ../../app/styles/forms.scss */
+.formContent img {
+  display: inline-block;
+  position: relative;
+  height: 150px;
+  width: auto;
+  margin: 10px;
+  float: right;
+}
+
+/* line 88, ../../app/styles/forms.scss */
+.gridStyle {
+  position: relative;
+  display: block;
+  left: 0;
+  right: 0;
+  overflow-x: scroll;
+  overflow-y: auto;
+}
+/* line 96, ../../app/styles/forms.scss */
+.gridStyle img {
+  height: auto;
+  width: auto;
+  float: none;
+}
+
+/* line 103, ../../app/styles/forms.scss */
+.panel-group {
+  margin-top: 10px;
+}
+/* line 105, ../../app/styles/forms.scss */
+.panel-group .panel {
+  border: 2px solid silver;
+}
+/* line 108, ../../app/styles/forms.scss */
+.panel-group .panel .collapsible {
+  background-color: white;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+/* line 115, ../../app/styles/forms.scss */
+.panel-group .panel .heading {
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  display: block;
+  color: RGBA(45, 50, 109, 1);
+  background-color: silver;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+/* line 132, ../../app/styles/forms.scss */
+.bioretentionRooftop img {
+  display: block;
+  position: relative;
+  height: 200px;
+  width: auto;
+  margin: 10px;
+  float: right;
+  border-radius: 10px;
+}
+
+/* line 144, ../../app/styles/forms.scss */
+.cisternRooftop img {
+  display: block;
+  position: relative;
+  height: 200px;
+  width: auto;
+  margin: 10px;
+  float: right;
+  border-radius: 10px;
+}
+
+/* line 156, ../../app/styles/forms.scss */
+.swalesParking img {
+  display: block;
+  position: relative;
+  height: 200px;
+  width: auto;
+  margin: 10px;
+  float: right;
+  clear: right;
+  border-radius: 10px;
+}
+
+/* line 170, ../../app/styles/forms.scss */
+.permeablePavementParking img {
+  display: block;
+  position: relative;
+  height: 200px;
+  width: auto;
+  margin: 10px;
+  float: right;
+  clear: right;
+  border-radius: 10px;
+}
+
+/* line 181, ../../app/styles/forms.scss */
+.jslider {
+  width: 30%;
+  margin: 10px 0 0 0;
+}
+
+/* line 186, ../../app/styles/forms.scss */
+.formFields {
+  margin-top: 20px;
+}
+
+/* line 190, ../../app/styles/forms.scss */
+.textbox_name {
+  display: inline-block;
+  width: 350px;
+  text-align: right;
+  margin-right: 5px;
+}
+
+/* line 197, ../../app/styles/forms.scss */
+.textbox_field {
+  display: inline-block;
+}
+
+/* line 201, ../../app/styles/forms.scss */
+.nav-tabs {
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+}
