@@ -1,0 +1,32 @@
+<body>
+<form action="#" onsubmit="return false;">
+	Search: 
+    <input type="text" id="search"/>
+    <button id="submit" onclick="saveJSON()">Go</button>
+</body>
+
+<script>
+	
+var bitlyXHR = new XMLHttpRequest();
+/*
+bitlyXHR.onreadystatechange = function() {
+    if (bitlyXHR.readyState == 4) {
+        if (bitlyXHR.status == 200) {
+           var obj = JSON.parse(bitlyXHR.responseText);
+           doSomething(obj); 
+        }
+    }
+};
+*/
+function saveJSON() {
+
+	var searchVal = document.getElementById("search").value;
+	logStr = "http://datadev.stone-env.com:8080/log/" + searchVal
+	console.log(logStr)
+	bitlyXHR.open("GET", logStr);
+	bitlyXHR.send();
+
+};
+	
+	
+</script>
