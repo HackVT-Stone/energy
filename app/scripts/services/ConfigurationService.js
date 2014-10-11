@@ -101,6 +101,7 @@ define([
 	
 				selectGraphic: function(g) {
 					selectedGraphic = g;
+					maybeApply();
 				},
 				
 				getSelectedGraphic: function(g) {
@@ -111,8 +112,19 @@ define([
 					selectedTown = town;
 				},
 	
+				deleteSelectedGraphic: function() {
+						currentState.mainMap.removeGraphic(selectedGraphic);
+						
+						maybeApply();
+				},
+	
 			getSelectedTown: function() {
 					return selectedTown;	
+			
+			},
+			
+			clearSetGraphic: function() {
+				selectedGraphic = null;	
 			},
 			
 				getGraphics: function() {

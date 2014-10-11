@@ -17,6 +17,9 @@ define([
 				$scope['selectedTown'] = energyAppConfiguration.getTowns()[energyAppConfiguration.getSelectedTown()];
 				$scope['graphic'] = energyAppConfiguration.getSelectedGraphic();
 				
+				$scope['deleteGraphic'] = function() {
+					energyAppConfiguration.deleteSelectedGraphic();
+				}
 
         $scope.$watch(
             function() {
@@ -76,14 +79,11 @@ define([
             },
             function(newValue, oldValue) {
             	if (newValue == oldValue) {
-            		return;
-            	}
-            	else {	
+                return;
+              }
                 $scope['selectedGraphic'] = newValue;
                 console.log("towns _is_ updated at config service...");
-              }
-            },
-            true
+            }
         );
         
         
@@ -106,6 +106,40 @@ define([
 //            },
 //            true
 //        );
+         
+         
+         
+         
+         
+         $scope['loadChart'] = function() {
+					google.load("visualization", "1", {packages:["corechart"]});
+//					google.setOnLoadCallback(function() {drawChart(5100000,5000000);});
+					
+					function drawChart(prog, targ) {
+//					if (prog >= targ) {progColor = 'color: green';}
+//					else {progColor = 'color: red';}
+//					var data = google.visualization.arrayToDataTable([
+//					['Category', 'Energy (kWh)',{role: 'style'}],
+//					['Supply',  prog, progColor],
+//					['Demand',  targ, 'color: blue'],
+//					]);
+//					labelFont = 'Arial';
+//					var options = {
+//					title: 'Annual Energy Budget (kWh)',
+//					titleTextStyle: {color: 'black', fontName: labelFont, fontSize: 28, bold: true},
+//					legend: {position: 'none'},
+//					vAxis: {textStyle: {color: 'black', fontName: 'Arial', fontSize: 24}, minValue: 0, maxValue: 1000000},
+//					hAxis: {textStyle: {color: 'black', fontName: 'Arial', fontSize: 24}}
+					};
+					
+					//var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+					
+					//chart.draw(data, options);
+
+					}	
+        }
+        
+        $scope.loadChart();
          
     }
   ]);

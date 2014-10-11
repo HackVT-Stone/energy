@@ -321,10 +321,33 @@ define([
 			      var result = evtObj.result;
 			      console.log(JSON.stringify(result));
 			      var g = gl.graphics[gl.graphics.length - 1];
-						g.setAttributes({'area': result.areas[0], 'solarEnergy': 0, 'energy' : 0});
+						g.setAttributes({'area': result.areas[0], 'energy' : 0});
+						var pve = getPvEnergy(result.areas[0],energyAppConfiguration.getTowns()[energyAppConfiguration.getSelectedTown()].energy);
+						g.setAttributes({'area': result.areas[0], 'energy' : pve});
 						energyAppConfiguration.setGraphics(gl);
 						console.log("graphic updated with new attribute");
 			    }
+					
+					
+					var pvArea = 400; //m2
+           var  pvSolarRad = 1320; //kWh/m2
+//            var y = getPvEnergy(pvArea, pvSolarRad);
+//            console.log(y)
+            function getPvEnergy(area,solarrad) {
+                roofThresh = 100; //m2, based on 50% of typical roof area
+                ac_dc = 0.8;
+                Ppk_A = .16 //kW/m2, based on six differnt panel specs
+                if (area >= roofThresh){
+                    //assume it's a ground installation
+                    panel_density = 0.2;
+                }
+                else {
+                    //assume it's a rooftop installation
+                    panel_density = 1.0;
+                }
+                pvE = solarrad*ac_dc*Ppk_A*area*panel_density;
+                return pvE;
+            }
 					
 //					function clearMap() {
 //						map.graphics.clear();
@@ -350,7 +373,7 @@ define([
 						
 						on(dom.byId("clearMap"), "click", function(evt) {
 							console.log("caught clearMap click!!!!");
-							map.graphics.clear();
+							gl.clear();
 						});
 							
 					}
@@ -462,6 +485,10 @@ define([
 					this.clearMap = function() {
 						map.graphics.clear();
 					};
+
+				this.removeGraphic = function(g) {
+					gl.remove(g);
+				};
 
 				};
 			}
