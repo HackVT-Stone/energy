@@ -1,70 +1,108 @@
-<!DOCTYPE html>
-<html>	
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<title></title>
-		<style> 
-    	</style> 
-    <script type="text/javascript">    	
-    	/////////////////////////////////////////////////////////////////////////
-    	// Define your in-page Functions here.
-    	/////////////////////////////////////////////////////////////////////////
-    	
-			/* 	
-					Please Put Your Code You Plan To Integrate Into An Included JS File
-					as shown in the script tag below ... 
-			*/
-			
-    	/////////////////////////////////////////////////////////////////////////
-    	</script>
-   	<!-- 	// VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV //
-   				//
-   				// This is how you include a pure JavaScript file into the page.
-   				// and this is the prefered spot for you to write your own JS
-   				// functions that can then be included into the final app...
-   				//
-   				// VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV //
-   	-->
-    <script type="text/javascript" src="myInclude.js"></script>
-    <!-- // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ // -->
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=1024">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+		
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.10/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">
+    <!-- endbuild -->
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+
+    <script>
+			var dojoConfig = {
+				parseOnLoad: true,
+			};
+   	</script>
     
-  	</head> 
-  <body> 
-  	<div id="outputDiv">
-    	</div>
-		<div>
-			<input 
-				type="button" 
-				onclick="writeToPage('Button Says Hello');" 
-				value="Click Me!"/>
-			</div>
-		<div>
-			<input 
-				type="button" 
-				onclick="alert('This will show a pop-up box');" 
-				value="Alert!"/>
-			</div>
-		<div>
-			<input 
-				type="button" 
-				onclick="console.log('This shows up in the browsers debug console');" 
-				value="Log to Console!"/>
-			</div>
-  	<script>
-  		/////////////////////////////////////////////////////////////////////////
-	  	// Order matters - if we make function calls that edit the page
-	  	// before the <body> tag and its content, the page will not
-	  	// exist to be edited by the javascript. So we can either
-	  	// trigger our javascript functions from the page's 'onload'
-	  	// event, or we can have this block at the bottom of the body
-	  	// that makes the function calls.
-	  	/////////////////////////////////////////////////////////////////////////
-	  	// Function calls below here are always run,
-	  	// as opposed to those triggered by a button or 
-	  	// other GUI event.
-	  	/////////////////////////////////////////////////////////////////////////
-	  	
-	  	writeToPage("Hello World");
-  		</script> 
-		</body>
-	</html>
+    
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-cookies.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-sanitize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-touch.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.min.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
+    <script src="bower_components/tabletop/src/tabletop.js"></script>
+    <script src="bower_components/angular-google-chart/ng-google-chart.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="http://js.arcgis.com/3.10compact/"></script>  
+    
+    <!-- <script src="scripts/main.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/controllers/MainController.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/controllers/HeaderController.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/controllers/FooterController.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/controllers/MapController.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/services/ConfigurationService.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/services/GUIStateService.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/services/UserStateService.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/Compile.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/ContentStep.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/FormBanner.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/FormContent.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/FormIntro.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/FormOutro.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/FormTitle.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/GetAddressButton.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/ngFeatureLayer.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/ngMap.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/StepForm.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/StepForms.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/directives/StepFormsWrapper.js" type="text/javascript"></script> --> 
+    <script src="https://www.google.com/jsapi"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!-- load our setup file -->
+   	<script src="setup.js" type="text/javascript" ></script>
+
+    <!-- start loading our application -->
+    <script src="init.js" type="text/javascript" ></script>
+
+    
+    <!-- endbuild -->
+   	
+ 
+    
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div>
+        <div ng-include="'views/header.html'" ng-controller="HeaderController"></div>
+        <div ng-include="'views/main.html'" ng-controller="MainController"></div>
+        <div ng-include="'views/footer.html'" ng-controller="FooterController"></div>
+    </div>
+
+
+</body>
+
+</html>
