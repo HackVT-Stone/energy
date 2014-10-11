@@ -40,6 +40,7 @@ define([
 		'esri/SpatialReference',
 		'dijit/TitlePane',
 		'esri/tasks/AreasAndLengthsParameters',
+		'esri/layers/GraphicsLayer'
 	], function(
 		ngMap,
 		connect,
@@ -79,7 +80,8 @@ define([
 		GeometryService, 
 		SpatialReference,
 		TitlePane,
-		AreasAndLengthsParameters
+		AreasAndLengthsParameters,
+		GraphicsLayer
 		) {
 			
 	var module = angular.module('ngMap',[]);
@@ -184,8 +186,12 @@ define([
 				var mapService_parcels = new ArcGISDynamicMapServiceLayer("http://maps.vcgi.org/arcgis/rest/services/EGC_services/MAP_VCGI_VTPARCELS_WM_NOCACHE_v1/MapServer");
 				mapService_parcels.setVisibleLayers([1]);
 
+				var mapService_energy = new ArcGISDynamicMapServiceLayer("http://ags.stone-env.net/arcgis/rest/services/Storymaps/HackVT/MapServer");
+
+				var gl = new GraphicsLayer();
+
 				var fillSymbol = new PictureFillSymbol(
-	          "",
+	          "images/solar_tile.png",
 	          new SimpleLineSymbol(
 	            SimpleLineSymbol.STYLE_SOLID,
 	            new Color([255,0,0]), 
@@ -226,7 +232,6 @@ define([
 					map = new Map($scope.uid, mapOptions);
 
 					
-
 
 					//////////////////////////////////////////////////////////////////////
 					// Define Dijits
@@ -308,31 +313,54 @@ define([
 						areasAndLengthsParams.polygons = [geometry];
 						geometryService.areasAndLengths(areasAndLengthsParams);
 
-						map.graphics.add(g);
+						gl.add(g);
 						//energyAppConfiguration.setGraphics(map.graphics);
 					}
 					
 					function storeAreaAndLength(evtObj) {
 			      var result = evtObj.result;
 			      console.log(JSON.stringify(result));
-			      var g = map.graphics.graphics[map.graphics.graphics.length - 1];
-						g.setAttributes({'area': result.areas[0], 'solarEnergy': 0, 'energy' : 0});
-						energyAppConfiguration.setGraphics(map.graphics);
+			      var g = gl.graphics[gl.graphics.length - 1];
+						g.setAttributes({'area': result.areas[0], 'energy' : 0});
+						var pve = getPvEnergy(result.areas[0],energyAppConfiguration.getTowns()[energyAppConfiguration.getSelectedTown()].annkwhm2);
+						g.setAttributes({'area': result.areas[0], 'energy' : pve});
+						energyAppConfiguration.setGraphics(gl);
 						console.log("graphic updated with new attribute");
 			    }
 					
-					function clearMap() {
-						map.graphics.clear();
-						energyAppConfiguration.setGraphics(map.graphics);
-					}
+					
+            function getPvEnergy(area,solarrad) {
+                var roofThresh = 100; //m2, based on 50% of typical roof area
+                var ac_dc = 0.8;
+                var Ppk_A = .16 //kW/m2, based on six differnt panel specs
+                var panel_density;
+                if (area >= roofThresh){
+                    //assume it's a ground installation
+                    panel_density = 0.2;
+                }
+                else {
+                    //assume it's a rooftop installation
+                    panel_density = 1.0;
+                }
+                var pvE = solarrad*ac_dc*Ppk_A*area*panel_density;
+                return pvE;
+            }
+					
+//					function clearMap() {
+//						map.graphics.clear();
+//						//energyAppConfiguration.setGraphics(map.graphics);
+//					}
 					
 					function initDrawBar() {
 						drawToolBar = new Draw(map);
 						drawToolBar.on("draw-end", graphicAdded);
 						
 						on(dom.byId("drawToolbar"),"click",function(evt) {
-							console.log("caught info click!!!!");
+							
 							if ( evt.target.id === "drawToolbar" ) {
+	           		return;
+	            }
+	            if ( evt.target.id === "clearMap" ) {
 	           		return;
 	            }
 	            var tool = evt.target.id.toLowerCase();
@@ -342,10 +370,17 @@ define([
 						
 						on(dom.byId("clearMap"), "click", function(evt) {
 							console.log("caught clearMap click!!!!");
-							clearMap();
+							gl.clear();
+							energyAppConfiguration.setGraphics(gl);
 						});
 							
 					}
+					
+					function selectGraphic(evt) {
+						
+						energyAppConfiguration.selectGraphic(evt.graphic);
+						
+					};
 					
 					//////////////////////////////////////////////////////////////////////
 					// Startup Dijits
@@ -354,10 +389,18 @@ define([
 					overviewMapDijit.startup();
 					initDrawBar();
 					
+					
+					
+					gl.on('click',selectGraphic);
+
+					
 					var layersToStartMapWith =
 					[
-						mapService_parcels
+						gl,
+						mapService_energy
 					];
+
+					
 
 					geometryService.on("areas-and-lengths-complete", storeAreaAndLength);
 
@@ -381,42 +424,15 @@ define([
 							else {
 								console.log("value change!");
 								var towns = energyAppConfiguration.getTowns();
-								var extent = towns[newValue].extent;
-								map.setExtent(extent);
+								var extent = towns[newValue].townExtent;
+								energyAppConfiguration.getMap().changeExtent(extent);
 								}
 						},
 						true
 					);
 
 					this.setClick = function(cType) {
-						//						switch(cType) {
-						//							case "revgeo":
-						//								try {
-						//									mapStopCenter.remove();
-						//									}
-						//								catch(e){}
-						//								mapStopRevGeo = map.on("click", function(e) {
-						//									map.graphics.clear();
-						//									var locationToRevGeoCode = webMercatorUtils.webMercatorToGeographic(e.mapPoint);
-						//		          		locator.locationToAddress(locationToRevGeoCode, 100); // second param is search distance in meters
-						//									});
-						//								break;
-						//							case "center":
-						//								try {
-						//									mapStopRevGeo.remove();
-						//									}
-						//								catch(e){}
-						//								mapStopCenter = map.on("click", function(e) {
-						//									$scope.$emit("map.click", e);
-						//									$scope.$apply(function() {
-						//										$scope.click.call($scope, e);
-						//									})
-						//									});
-						//								break;
-						//							default:
-						//								break;
-						//						}
-						//mapClickReset = map.on("click", clickType);
+
 					};
 
 					this.getMap = function() {
@@ -452,12 +468,25 @@ define([
 
 					this.updateGraphics = function(gArray) {
 						map.graphics.graphics = gArray;
-						
-//						.clear();
-//							for (var i = 0; i < gArray.length; i++) {
-//								map.graphics.add(gArray[i]);
-//								}
 					};
+
+					this.changeExtent = function(extent) {
+						var xtnt = new esri.geometry.Extent();
+						xtnt.xmin = extent.xmin;
+						xtnt.ymin = extent.ymin;
+						xtnt.xmax = extent.xmax;
+						xtnt.ymax = extent.ymax;
+						xtnt.spatialReference = new esri.SpatialReference( {wkid:4326} );
+						map.setExtent(xtnt);	
+					};
+
+					this.clearMap = function() {
+						map.graphics.clear();
+					};
+
+				this.removeGraphic = function(g) {
+					gl.remove(g);
+				};
 
 				};
 			}

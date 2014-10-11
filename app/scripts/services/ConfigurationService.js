@@ -14,7 +14,8 @@ define([
 			var currentGraphics = [];
 			currentState['mainMap'] = {};
 			var townDict = {};
-			var selectedTown = "";
+			var selectedTown = '';
+			var selectedGraphic = {};
 			
 			function townInit() {
 				Tabletop.init( { key: '14QIE2sG7tzOvktoYGBVT2P_BSCGwWc9Au8LaxKuzH9w',
@@ -66,6 +67,12 @@ define([
 			
 			townInit();
 			return {
+				doReset: function() {
+					var currentGraphics = [];
+					var selectedTown = '';
+					var selectedGraphic = {};
+					maybeApply();
+				},
 				// Simple getter for config data.
 				getConfig: function() {
 					return contentConfig;
@@ -98,21 +105,41 @@ define([
 						return townDict;
 				},
 	
+				selectGraphic: function(g) {
+					selectedGraphic = g;
+					maybeApply();
+				},
+				
+				getSelectedGraphic: function(g) {
+					return selectedGraphic;	
+				},
+	
 				selectTown: function(town) {
 					selectedTown = town;
 				},
 	
+				deleteSelectedGraphic: function() {
+						currentState.mainMap.removeGraphic(selectedGraphic);
+						
+						maybeApply();
+				},
+	
 			getSelectedTown: function() {
 					return selectedTown;	
+			
+			},
+			
+			clearSetGraphic: function() {
+				selectedGraphic = null;	
 			},
 			
 				getGraphics: function() {
-					maybeApply();
 					return currentGraphics;
 				},
 				
 				setGraphics: function(glayer) {
 					currentGraphics = glayer;
+					maybeApply();
 				},
 				
 				getLastGraphic: function() {

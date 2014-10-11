@@ -17,6 +17,10 @@ define([
     $scope.$on('map.click', function(event, e){
       console.log('broadcast', event, e);
     });
+    
+    $scope.$on('map.graphics.click', function(event, e){
+      console.log('graphics click', event, e);
+    });
   });
 
 	return module;
