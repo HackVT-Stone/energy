@@ -186,6 +186,8 @@ define([
 				var mapService_parcels = new ArcGISDynamicMapServiceLayer("http://maps.vcgi.org/arcgis/rest/services/EGC_services/MAP_VCGI_VTPARCELS_WM_NOCACHE_v1/MapServer");
 				mapService_parcels.setVisibleLayers([1]);
 
+				var mapService_energy = new ArcGISDynamicMapServiceLayer("http://ags.stone-env.net/arcgis/rest/services/Storymaps/HackVT/MapServer");
+
 				var gl = new GraphicsLayer();
 
 				var fillSymbol = new PictureFillSymbol(
@@ -324,18 +326,21 @@ define([
 						console.log("graphic updated with new attribute");
 			    }
 					
-					function clearMap() {
-						map.graphics.clear();
-						energyAppConfiguration.setGraphics(map.graphics);
-					}
+//					function clearMap() {
+//						map.graphics.clear();
+//						//energyAppConfiguration.setGraphics(map.graphics);
+//					}
 					
 					function initDrawBar() {
 						drawToolBar = new Draw(map);
 						drawToolBar.on("draw-end", graphicAdded);
 						
 						on(dom.byId("drawToolbar"),"click",function(evt) {
-							console.log("caught info click!!!!");
+							
 							if ( evt.target.id === "drawToolbar" ) {
+	           		return;
+	            }
+	            if ( evt.target.id === "clearMap" ) {
 	           		return;
 	            }
 	            var tool = evt.target.id.toLowerCase();
@@ -345,7 +350,7 @@ define([
 						
 						on(dom.byId("clearMap"), "click", function(evt) {
 							console.log("caught clearMap click!!!!");
-							clearMap();
+							map.graphics.clear();
 						});
 							
 					}
@@ -371,7 +376,7 @@ define([
 					var layersToStartMapWith =
 					[
 						gl,
-						mapService_parcels
+						mapService_energy
 					];
 
 					
@@ -452,6 +457,10 @@ define([
 						xtnt.ymax = extent.ymax;
 						xtnt.spatialReference = new esri.SpatialReference( {wkid:4326} );
 						map.setExtent(xtnt);	
+					};
+
+					this.clearMap = function() {
+						map.graphics.clear();
 					};
 
 				};

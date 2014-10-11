@@ -13,8 +13,8 @@ define([
 				// there are changes, update the config in scope.
         $scope['config'] = energyAppConfiguration.getConfig();
         $scope['townList'] = [];
-        $scope['selectedTown'] = '';
-				$scope['town'] = energyAppConfiguration.getTowns()[energyAppConfiguration.getSelectedTown()];
+        $scope['town'] = '';
+				$scope['selectedTown'] = energyAppConfiguration.getTowns()[energyAppConfiguration.getSelectedTown()];
 				$scope['graphic'] = energyAppConfiguration.getSelectedGraphic();
 				
 
@@ -42,12 +42,50 @@ define([
             	}
             	else {	
                 $scope['townList'] = newValue;
-                $scope['selectedTown'] = townList[0];
+                $scope['town'] = townList[0];
                 console.log("towns _is_ updated at config service...");
               }
             },
             true
         );
+        
+        $scope.$watch(
+            function() {
+                var t = energyAppConfiguration.getSelectedTown();
+                console.log("is selected t updated at config service...?");
+                return t;
+            },
+            function(newValue, oldValue) {
+            	if (newValue == oldValue) {
+            		return;
+            	}
+            	else {	
+                $scope['town'] = newValue;
+                $scope['selectedTown'] = energyAppConfiguration.getTowns()[$scope['town']];
+                console.log("towns _is_ updated at config service...");
+              }
+            },
+            true
+        );
+        
+        $scope.$watch(
+            function() {
+                var t = energyAppConfiguration.getSelectedGraphic();
+                console.log("is selected g updated at config service...?");
+                return t;
+            },
+            function(newValue, oldValue) {
+            	if (newValue == oldValue) {
+            		return;
+            	}
+            	else {	
+                $scope['selectedGraphic'] = newValue;
+                console.log("towns _is_ updated at config service...");
+              }
+            },
+            true
+        );
+        
         
         $scope['change'] = function(foo) {
         	energyAppConfiguration.selectTown(foo.name);
