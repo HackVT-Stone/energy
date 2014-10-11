@@ -13,6 +13,7 @@ define([
 				// there are changes, update the config in scope.
         $scope['config'] = energyAppConfiguration.getConfig();
         $scope['townList'] = [];
+        $scope['selectedTown'] = '';
 
 
         $scope.$watch(
@@ -46,21 +47,25 @@ define([
             true
         );
         
-        $scope.$watch(
-            function() {
-                return $scope['selectedTown'];
-            },
-            function(newValue, oldValue) {
-            	if (newValue == oldValue) {
-            		return;
-            	}
-            	else {	
-                energyAppConfiguration.setSelectedTown(newValue);
-                console.log("towns _is_ updated at config service...");
-              }
-            },
-            true
-        );
+        $scope['change'] = function(foo) {
+        	energyAppConfiguration.selectTown(foo.name);
+        };
+        
+//        $scope.$watch(
+//            function() {
+//                return $scope['selectedTown'];
+//            },
+//            function(newValue, oldValue) {
+//            	if (newValue == oldValue) {
+//            		return;
+//            	}
+//            	else {	
+//                energyAppConfiguration.setSelectedTown(newValue);
+//                console.log("towns _is_ updated at config service...");
+//              }
+//            },
+//            true
+//        );
          
     }
   ]);
