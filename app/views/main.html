@@ -1,0 +1,22 @@
+<div id="toolbox">
+	<div id="drawToolbar">
+		<button id="Point">Point</button>
+		<button id="Polygon">Polygon</button>
+	</div>
+	<div id="mapTools">
+		<div id="clearMap">Clear Map</div>
+	</div>
+</div>
+<div class="mainContent">
+    <div class="mainContentMapContainer" 
+    	ng-controller="MapController">
+        <div id="geocoder"></div>
+        <ng-map id="map" 
+        	center="-8128741.845769273,5529208.858634029" 
+        	zoom="14" 
+        	basemap="topo" 
+        	onclick="click"
+        	order="0">
+        </ng-map>
+    </div>
+</div>
