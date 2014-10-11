@@ -1,7 +1,8 @@
 /* global angular:true */
 "use strict";
 define([
-	'energy/services/ConfigurationService'
+	'energy/services/ConfigurationService',
+	
 	], function(ConfigurationService) {
 
 	var module = angular.module('ConfigurationService',[]);
@@ -12,6 +13,33 @@ define([
 			var contentConfig = {};
 			var currentGraphics = [];
 			currentState['mainMap'] = {};
+			var townDict = {};
+			var selectedTown = "";
+			
+			function townInit() {
+				Tabletop.init( { key: '14QIE2sG7tzOvktoYGBVT2P_BSCGwWc9Au8LaxKuzH9w',
+				callback: townPostProcess,
+				simpleSheet: true } );
+			}
+
+			function townPostProcess(data) {
+				for (var i = 0; i < data.length; i++){
+				
+				var townname = data[i].townname;
+				delete data[i].townname;
+				
+				var townExtent = eval("(" + data[i].extent + ")");
+				delete data[i].extent;
+				
+				townDict[townname] = data[i];
+				townDict[townname].townExtent = townExtent;
+				townDict[townname].name = townname;
+				
+				}
+				console.log(townDict);
+				maybeApply();
+			}
+			
 			
 			// Store config as JSON in external location.
 			// Load it here with $http service.
@@ -35,7 +63,8 @@ define([
 						$rootScope.$apply();
 				}
 			}
-		
+			
+			townInit();
 			return {
 				// Simple getter for config data.
 				getConfig: function() {
@@ -65,9 +94,21 @@ define([
 					console.log('map saved to current state');
 				},
 	
+				getTowns : function() {
+						return townDict;
+				},
+	
+				selectTown: function(town) {
+					selectedTown = town;
+				},
+	
+			getSelectedTown: function() {
+					return selectedTown;	
+			},
+			
 				getGraphics: function() {
-					return currentGraphics;
 					maybeApply();
+					return currentGraphics;
 				},
 				
 				setGraphics: function(glayer) {

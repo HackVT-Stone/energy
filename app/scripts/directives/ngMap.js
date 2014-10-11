@@ -323,6 +323,7 @@ define([
 					
 					function clearMap() {
 						map.graphics.clear();
+						energyAppConfiguration.setGraphics(map.graphics);
 					}
 					
 					function initDrawBar() {
@@ -366,6 +367,26 @@ define([
 					// Define "API" methods for this directive instance
 					//////////////////////////////////////////////////////////////////////
 
+					$scope.$watch(
+						function() {
+							var town = energyAppConfiguration.getSelectedTown();
+							console.log("Town: " + town);
+							return town;
+						},
+						function(newValue, oldValue) {
+							if (newValue == oldValue) {
+								console.log("no value change!");
+								return;
+							}
+							else {
+								console.log("value change!");
+								var towns = energyAppConfiguration.getTowns();
+								var extent = towns[newValue].extent;
+								map.setExtent(extent);
+								}
+						},
+						true
+					);
 
 					this.setClick = function(cType) {
 						//						switch(cType) {

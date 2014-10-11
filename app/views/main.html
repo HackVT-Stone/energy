@@ -1,4 +1,9 @@
 <div id="toolbox">
+	
+	<select ng-model="selectedTown"
+		ng-options="name for (name, value) in townList">
+	</select>
+	
 	<div id="drawToolbar">
 		<button id="Point">Point</button>
 		<button id="Polygon">Polygon</button>
@@ -8,7 +13,7 @@
 	</div>
 </div>
 <div class="mainContent">
-    <div class="mainContentMapContainer" 
+    <div class="mainContentMapContainer"
     	ng-controller="MapController">
         <div id="geocoder"></div>
         <ng-map id="map" 
