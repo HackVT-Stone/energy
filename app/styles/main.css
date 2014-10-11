@@ -98,6 +98,9 @@
 #selectedP {
   float: left; }
 
+select {
+  padding-left: 20px; }
+
 p {
   padding: 0px;
   margin: 0px; }
