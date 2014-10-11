@@ -116,25 +116,25 @@ define([
 							}
 						});
 						
-						scope.$watch(
-							function() {
-								var gArray = energyAppConfiguration.getGraphics();
-								console.log("Graphics Array: " + gArray);
-								return gArray;
-							},
-							function(newValue, oldValue) {
-								if (newValue == oldValue) {
-									console.log("no value change!");
-									return;
-								}
-								else {
-									console.log("value change!");
-									var map = energyAppConfiguration.getMap();
-									map.updateGraphics(newValue);
-									}
-							},
-							true
-						);
+						//scope.$watch(
+						//	function() {
+						//		var gArray = energyAppConfiguration.getGraphics();
+						//		console.log("Graphics Array: " + gArray);
+						//		return gArray;
+						//	},
+						//	function(newValue, oldValue) {
+						//		if (newValue == oldValue) {
+						//			console.log("no value change!");
+						//			return;
+						//		}
+						//		else {
+						//			console.log("value change!");
+						//			var map = energyAppConfiguration.getMap();
+						//			map.updateGraphics(newValue);
+						//			}
+						//	},
+						//	true
+						//);
 
 				};
 			},
@@ -308,15 +308,17 @@ define([
 						areasAndLengthsParams.polygons = [geometry];
 						geometryService.areasAndLengths(areasAndLengthsParams);
 
-						//map.graphics.add(g);
-						energyAppConfiguration.addGraphic(g);
+						map.graphics.add(g);
+						//energyAppConfiguration.setGraphics(map.graphics);
 					}
 					
 					function storeAreaAndLength(evtObj) {
 			      var result = evtObj.result;
-			      var g = energyAppConfiguration.getLastGraphic();
 			      console.log(JSON.stringify(result));
-						g.attr('area',result.areas[0]);
+			      var g = map.graphics.graphics[map.graphics.graphics.length - 1];
+						g.setAttributes({'area': result.areas[0], 'solarEnergy': 0, 'energy' : 0});
+						energyAppConfiguration.setGraphics(map.graphics);
+						console.log("graphic updated with new attribute");
 			    }
 					
 					function clearMap() {
@@ -335,11 +337,6 @@ define([
 	            var tool = evt.target.id.toLowerCase();
 							map.disableMapNavigation();
 	            drawToolBar.activate(tool);
-						});
-						
-						on(dom.byId("addToMap"), "click", function(evt) {
-							console.log("caught addToMap click!!!!");
-							addToMap();
 						});
 						
 						on(dom.byId("clearMap"), "click", function(evt) {

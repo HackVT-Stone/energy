@@ -70,8 +70,12 @@ define([
 					maybeApply();
 				},
 				
+				setGraphics: function(glayer) {
+					currentGraphics = glayer;
+				},
+				
 				getLastGraphic: function() {
-					return currentGraphics[currentGraphics.length - 1];	
+					return currentGraphics.graphics.pop();
 				},
 				
 				addGraphic: function(inputGraphic) {
